@@ -63,8 +63,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 - Rule-out sepsis coding (Z03.71)
 - CPAP and phototherapy intervention coding
 
-*Full case coming soon*
-
+[📱 View Interactive Case →](/cases/preterm-rds.html)
 ---
 
 **🔹 Case 4: Term Newborn with Birth Trauma and ABO Incompatibility** ⭐⭐⭐⭐
