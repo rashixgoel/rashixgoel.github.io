@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Birth Asphyxia with HIE | Rashi Goel Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 20px 0 10px 0;
+            font-size: 2em;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .overview {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #fa709a;
+        }
+
+        .overview h2 {
+            margin-bottom: 15px;
+        }
+
+        .patient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            border: none;
+            background: transparent;
+            color: #495057;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #f8f9fa;
+        }
+
+        .tab.active {
+            background: #fa709a;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .clinical-doc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .clinical-doc h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .clinical-doc h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .code-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .code-box-primary {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+
+        .code-box-secondary {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+        }
+
+        .code-box-tertiary {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .code-box-intervention {
+            background: #e7f3ff;
+            border: 1px solid #17a2b8;
+        }
+
+        .code-item {
+            margin-bottom: 15px;
+        }
+
+        .code-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .code-description {
+            margin-top: 5px;
+            color: #495057;
+        }
+
+        .code-rationale {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #218838;
+        }
+
+        .btn-secondary {
+            background: #fa709a;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #e85d89;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .collapsible {
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            width: 100%;
+            padding: 20px;
+            background: #f8f9fa;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: #e9ecef;
+        }
+
+        .collapsible-header.active {
+            background: #fa709a;
+            color: white;
+        }
+
+        .collapsible-content {
+            padding: 20px;
+            background: white;
+            display: none;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
+        .error-box {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .success-box {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #28a745;
+        }
+
+        .quiz-question {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-question h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .quiz-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #d4edda;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .quiz-answer.show {
+            display: block;
+        }
+
+        .completion-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .completion-box ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .completion-box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: white;
+            color: #fa709a;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="back-link">← Back to Portfolio</a>
+            <h1>Case Study: Birth Asphyxia with Hypoxic Ischemic Encephalopathy</h1>
+            <div class="meta-info">
+                <span>📊 Complexity: ⭐⭐⭐⭐⭐ Expert</span>
+                <span>🏥 Setting: NICU</span>
+                <span>📅 LOS: 8 days</span>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="overview">
+            <h2>📋 Case Overview</h2>
+            <div class="patient-grid">
+                <div><strong>Patient:</strong> Male newborn</div>
+                <div><strong>Gestational Age:</strong> 40 weeks 1 day</div>
+                <div><strong>Birth Weight:</strong> 3,520 grams</div>
+                <div><strong>Delivery:</strong> Emergency cesarean</div>
+            </div>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">🎯 Key Learning Objectives:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Asphyxia coding: P20.- (fetal) vs P21.9 (newborn) based on cord blood values</li>
+                <li>HIE (P91.6) as most responsible diagnosis when present</li>
+                <li>Sequencing multiple serious conditions (HIE, respiratory failure, PPHN)</li>
+                <li>Mechanical ventilation vs CPAP intervention coding</li>
+                <li>When seizures are coded separately vs part of HIE diagnosis</li>
+            </ul>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('clinical')">📄 Clinical Documentation</button>
+            <button class="tab" onclick="showTab('coding')">📊 Coding Abstract</button>
+            <button class="tab" onclick="showTab('rationale')">🧠 Coding Rationale</button>
+            <button class="tab" onclick="showTab('quiz')">💬 Test Your Knowledge</button>
+        </div>
+
+        <!-- Clinical Documentation Tab -->
+        <div id="clinical" class="tab-content active">
+            <h2>📄 Clinical Documentation</h2>
+            
+            <div class="alert alert-danger">
+                <strong>⚠️ Critical Case:</strong> This is a severe birth asphyxia case with multi-organ involvement. Pay close attention to diagnosis sequencing and intervention coding!
+            </div>
+
+            <div class="clinical-doc">
+                <h3>NEWBORN DISCHARGE SUMMARY</h3>
+                
+                <p><strong>INFANT:</strong> Male</p>
+                <p><strong>MOTHER:</strong> 35 years old, G1P0→1</p>
+                <p><strong>DATE OF BIRTH:</strong> April 1, 2026, 02:15</p>
+                <p><strong>DATE OF DISCHARGE:</strong> April 9, 2026</p>
+                <p><strong>LENGTH OF STAY:</strong> 8 days</p>
+                
+                <h4>BIRTH HISTORY:</h4>
+                <ul>
+                    <li>Gestational Age: 40 weeks 1 day (TERM)</li>
+                    <li>Birth Weight: 3,520 grams</li>
+                    <li>Labour: Spontaneous onset, progressing normally</li>
+                    <li>Complication: Sudden severe fetal bradycardia to 60 bpm during active labour</li>
+                    <li>Decision: STAT emergency cesarean section</li>
+                    <li>Delivery: 8 minutes from decision to delivery</li>
+                </ul>
+
+                <h4>DELIVERY ROOM EVENTS:</h4>
+                <p><strong>APGAR SCORES: 0 at 1 minute, 2 at 5 minutes, 5 at 10 minutes</strong></p>
+                
+                <p>Infant delivered limp, blue, apneic. NO respiratory effort.</p>
+                
+                <p><strong>Resuscitation performed:</strong></p>
+                <ul>
+                    <li>Positive pressure ventilation initiated immediately</li>
+                    <li>NO response after 30 seconds</li>
+                    <li>Intubated at 90 seconds of life</li>
+                    <li>Chest compressions started at 2 minutes</li>
+                    <li>Epinephrine given via ETT at 4 minutes</li>
+                    <li>Heart rate improved to >100 bpm by 6 minutes</li>
+                    <li>Spontaneous respirations weak, remained intubated</li>
+                </ul>
+
+                <p><strong>CORD BLOOD GASES (umbilical artery):</strong></p>
+                <ul>
+                    <li>pH: 6.82 (SEVERE acidosis, normal >7.20)</li>
+                    <li>Base deficit: -18 mmol/L (SEVERE, normal <12)</li>
+                    <li>pCO2: 88 mmHg (elevated)</li>
+                    <li>pO2: 12 mmHg (very low)</li>
+                </ul>
+
+                <p><strong>DIAGNOSIS in delivery room: SEVERE BIRTH ASPHYXIA</strong></p>
+
+                <h4>NICU ADMISSION (Day of Life 1):</h4>
+                
+                <p><strong>Initial Assessment:</strong></p>
+                <ul>
+                    <li>Encephalopathic: Poor tone, no spontaneous movement</li>
+                    <li>Pupils sluggish</li>
+                    <li>Mechanical ventilation via endotracheal tube</li>
+                    <li>Blood pressure unstable, requiring dopamine</li>
+                </ul>
+
+                <p><strong>Hour 4 of life:</strong> Infant developed SEIZURES (tonic, 30 seconds duration). EEG showing abnormal background. Started on phenobarbital.</p>
+
+                <p><strong>Hour 6 of life:</strong> Started therapeutic hypothermia (whole body cooling to 33.5°C for 72 hours) for neuroprotection.</p>
+
+                <p><strong>Additional complications identified:</strong></p>
+                <ul>
+                    <li><strong>Persistent Pulmonary Hypertension (PPHN):</strong> Oxygen saturations 75-80% despite 100% oxygen. Echo confirmed PPHN with right-to-left shunting.</li>
+                    <li><strong>Acute Kidney Injury:</strong> Urine output <0.5 mL/kg/hr, creatinine rising (124 μmol/L)</li>
+                </ul>
+
+                <p><strong>Treatment:</strong> Inhaled nitric oxide started for PPHN.</p>
+
+                <h4>DAYS 2-3 (HYPOTHERMIA PHASE):</h4>
+                <ul>
+                    <li>Continued mechanical ventilation</li>
+                    <li>Seizures controlled with phenobarbital</li>
+                    <li>Therapeutic hypothermia maintained</li>
+                    <li>PPHN improving with nitric oxide</li>
+                    <li>Urine output improved, creatinine stabilizing</li>
+                </ul>
+
+                <h4>DAY 4 (REWARMING):</h4>
+                <p>Completed 72 hours of hypothermia. Gradual rewarming over 12 hours to normal body temperature.</p>
+
+                <h4>DAYS 5-6:</h4>
+                <ul>
+                    <li>Neurological status: Improved tone, some spontaneous movement returning</li>
+                    <li>Extubated to CPAP on Day 5</li>
+                    <li>Weaned off CPAP to room air Day 6</li>
+                    <li>Nitric oxide weaned off successfully</li>
+                    <li>No further seizures</li>
+                </ul>
+
+                <h4>DAYS 7-8:</h4>
+                <ul>
+                    <li>MRI brain: Moderate changes consistent with HIE (abnormal signal in basal ganglia)</li>
+                    <li>Starting to feed orally</li>
+                    <li>Follow-up arranged with neurodevelopmental clinic</li>
+                </ul>
+
+                <h4>DISCHARGE DIAGNOSES:</h4>
+                <ol>
+                    <li>Term male infant, emergency cesarean delivery</li>
+                    <li><strong>Hypoxic Ischemic Encephalopathy (HIE), moderate</strong></li>
+                    <li>Birth asphyxia with severe cord blood acidosis</li>
+                    <li>Neonatal seizures secondary to HIE</li>
+                    <li>Respiratory failure requiring mechanical ventilation</li>
+                    <li>Persistent pulmonary hypertension of the newborn (PPHN)</li>
+                    <li>Acute kidney injury (resolved)</li>
+                </ol>
+
+                <p><strong>INTERVENTIONS:</strong></p>
+                <ul>
+                    <li>Therapeutic hypothermia (72 hours)</li>
+                    <li>Mechanical ventilation (5 days)</li>
+                    <li>Inhaled nitric oxide therapy</li>
+                    <li>Anti-seizure medication (phenobarbital)</li>
+                    <li>MRI brain</li>
+                    <li>Continuous EEG monitoring</li>
+                </ul>
+
+                <p><strong>DISCHARGE WEIGHT:</strong> 3,420 grams</p>
+                <p><strong>DISCHARGE CONDITION:</strong> Improved but requiring close neurodevelopmental follow-up</p>
+                <p><strong>DISPOSITION:</strong> Home with parents, neurology clinic follow-up in 2 weeks</p>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('coding')">
+                    Ready? View Coding Abstract →
+                </button>
+            </div>
+        </div>
+
+        <!-- Coding Abstract Tab -->
+        <div id="coding" class="tab-content">
+            <h2>📊 Coding Abstract</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Critical Decision:</strong> When HIE is present, it becomes the most responsible diagnosis (Type M), NOT the asphyxia itself!
+            </div>
+
+            <!-- Demographics -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">Demographics</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <div><strong>Gender:</strong> M</div>
+                    <div><strong>Gestational Age:</strong> 40 weeks 1 day</div>
+                    <div><strong>Birth Weight:</strong> 3,520 grams</div>
+                    <div><strong>Delivery:</strong> Emergency cesarean</div>
+                    <div><strong>LOS:</strong> 8 days</div>
+                </div>
+            </div>
+
+            <!-- Main Condition -->
+            <div class="code-box code-box-primary">
+                <h3 style="margin-top: 0;">🎯 MAIN CONDITION (Most Responsible Diagnosis)</h3>
+                <div class="code-item">
+                    <div class="code-number">P91.6</div>
+                    <div class="code-description">Hypoxic ischemic encephalopathy of newborn</div>
+                    <div class="code-rationale"><strong>Type M</strong> - Most responsible diagnosis<br>
+                    HIE is the primary condition requiring the most complex interventions and determining LOS</div>
+                </div>
+                
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📚 CIHI Standard:</strong> When HIE is present, it is assigned as the most responsible diagnosis. The asphyxia (P20.1) becomes a Type 1 diagnosis.
+                </div>
+            </div>
+
+            <!-- Significant Diagnoses -->
+            <div class="code-box code-box-secondary">
+                <h3 style="margin-top: 0;">⚡ Significant Diagnoses (Type 1 - All equal importance)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">P28.5</div>
+                    <div class="code-description">Respiratory failure of newborn</div>
+                    <div class="code-rationale">✓ Required mechanical ventilation for 5 days<br>
+                    ✓ Major intervention impacting LOS</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number">P29.30</div>
+                    <div class="code-description">Persistent fetal circulation (PPHN)</div>
+                    <div class="code-rationale">✓ Required nitric oxide therapy<br>
+                    ✓ Significant complication requiring treatment</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number">P96.0</div>
+                    <div class="code-description">Congenital renal failure</div>
+                    <div class="code-rationale">✓ Acute kidney injury requiring monitoring<br>
+                    ✓ Multi-organ impact from asphyxia</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number">P20.1</div>
+                    <div class="code-description">Intrauterine hypoxia first noted during labour and delivery</div>
+                    <div class="code-rationale">✓ Cord blood pH 6.82 (severe acidosis)<br>
+                    ✓ Base deficit -18 mmol/L<br>
+                    ✓ Fetal bradycardia during labour</div>
+                </div>
+            </div>
+
+            <!-- Type 0 Diagnosis -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">⚪ Type 0 Diagnosis (Mandatory Z38 code)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">Z38.010</div>
+                    <div class="code-description">Single liveborn infant, delivered by cesarean section</div>
+                    <div class="code-rationale">Type 0 - When any other code is MRDx, Z38.- becomes Type 0</div>
+                </div>
+            </div>
+
+            <!-- Interventions -->
+            <div class="code-box code-box-intervention">
+                <h3 style="margin-top: 0;">🔧 Intervention Coding (CCI)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">1.GZ.31.CB-EP</div>
+                    <div class="code-description">Respiratory assistance using invasive positive pressure ventilation (mechanical ventilation via endotracheal tube), with bag and mask resuscitation</div>
+                    <div class="code-rationale">Mechanical ventilation Day 1-5 (code once)</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">1.HZ.30.JN</div>
+                    <div class="code-description">Monitoring electrical activity of brain using continuous approach</div>
+                    <div class="code-rationale">Continuous EEG monitoring for seizures</div>
+                </div>
+
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📝 Note on Seizure Coding:</strong> Seizures are NOT coded separately when they are part of the HIE diagnosis. P91.6 includes seizures as a manifestation. Per Fletcher & Lokun page 30.8: "When this diagnosis is stated, the individual neurological effects are not coded (e.g., seizures)."
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-secondary" onclick="showTab('rationale')">
+                    Understand Why? View Rationale →
+                </button>
+            </div>
+        </div>
+
+        <!-- Rationale Tab -->
+        <div id="rationale" class="tab-content">
+            <h2>🧠 Coding Rationale & Decision Points</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 This Case Tests:</strong> Understanding HIE vs asphyxia hierarchy, sequencing multiple critical conditions, and when NOT to code certain manifestations!
+            </div>
+
+            <!-- Decision 1 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #1: Why P91.6 (HIE) is Main, NOT P20.1 (Asphyxia)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>The Hierarchy: Asphyxia → HIE</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <p><strong>What actually happened:</strong></p>
+                        <ol style="margin-left: 20px; margin-top: 10px;">
+                            <li>Baby experienced asphyxia (P20.1) during labour</li>
+                            <li>Asphyxia CAUSED brain injury (HIE = P91.6)</li>
+                            <li>HIE became the condition requiring most intensive treatment</li>
+                        </ol>
+                    </div>
+
+                    <h4>From Fletcher & Lokun, Page 30.7-30.8:</h4>
+                    <div style="background: #fffbcc; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                        <p><strong>"The diagnosis P91.6 Hypoxic ischaemic encephalopathy includes the neurological manifestations of asphyxia."</strong></p>
+                        <p style="margin-top: 10px;"><strong>"It is classified to P91.6 Hypoxic ischaemic encephalopathy of newborn. When this diagnosis is stated, the individual neurological effects are not coded (e.g. seizures)."</strong></p>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Sequencing Rule:</h4>
+                    <div class="success-box">
+                        <p><strong>When both asphyxia AND HIE are present:</strong></p>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>P91.6 (HIE)</strong> = Type M (most responsible diagnosis)</li>
+                            <li><strong>P20.1 (Asphyxia)</strong> = Type 1 (significant comorbidity)</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Why This Makes Sense:</h4>
+                    <ul>
+                        <li>HIE required therapeutic hypothermia (72 hours)</li>
+                        <li>HIE required continuous EEG monitoring</li>
+                        <li>HIE required anti-seizure medication</li>
+                        <li>HIE determined the 8-day length of stay</li>
+                        <li>HIE requires long-term neurodevelopmental follow-up</li>
+                    </ul>
+
+                    <p style="margin-top: 15px;"><strong>→ HIE is the condition that drove resource use and LOS, making it the MRDx.</strong></p>
+                </div>
+            </div>
+
+            <!-- Decision 2 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #2: P20.1 vs P21.9 - How to Choose?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Asphyxia Coding Based on WHEN and CORD BLOOD pH:</h4>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>When to Use</th>
+                                <th>Criteria</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>P20.1</strong><br>Fetal asphyxia</td>
+                                <td>Distress DURING labour/delivery</td>
+                                <td>Umbilical cord arterial pH ≤7.0 and/or<br>Base deficit ≥12 mmol/L</td>
+                            </tr>
+                            <tr>
+                                <td><strong>P21.9</strong><br>Newborn asphyxia</td>
+                                <td>After birth (not umbilical cord)</td>
+                                <td>Capillary/arterial (not cord) pH <7.0 and/or<br>Base deficit >12 mmol/L</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="margin-top: 20px;">This Case:</h4>
+                    <div class="success-box">
+                        <p><strong>✅ P20.1 assigned because:</strong></p>
+                        <ul style="margin-top: 10px;">
+                            <li>Fetal bradycardia noted DURING labour</li>
+                            <li>Cord blood (umbilical artery) pH = 6.82 (meets ≤7.0 criteria)</li>
+                            <li>Cord blood base deficit = -18 mmol/L (meets ≥12 criteria)</li>
+                            <li>Asphyxia occurred before/during delivery, not after birth</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">From Fletcher & Lokun, Page 30.7:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 13px;">
+                        <p><strong>Assign P20.- Fetal asphyxia when:</strong></p>
+                        <ul>
+                            <li>Umbilical cord arterial pH is ≤7.0 and/or</li>
+                            <li>Umbilical cord arterial base deficit is ≥12 mmol/L</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Assign P21.9 Newborn asphyxia when:</strong></p>
+                        <ul>
+                            <li>Capillary or arterial (not umbilical cord) pH is <7.0 and/or</li>
+                            <li>Capillary or arterial base deficit is >12 mmol/L</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 3 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #3: Why NO Separate Code for Seizures?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Seizures Are Part of HIE - NOT Coded Separately</h4>
+                    
+                    <div class="error-box">
+                        <p><strong>❌ DO NOT CODE:</strong></p>
+                        <ul style="margin-top: 10px;">
+                            <li>P90 (Convulsions of newborn)</li>
+                            <li>R56.0 (Febrile convulsions)</li>
+                            <li>Any other seizure code</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Reason:</strong> When HIE (P91.6) is diagnosed, seizures are considered a manifestation of the HIE, not a separate condition.</p>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Fletcher & Lokun Explicit Guidance (Page 30.8):</h4>
+                    <div style="background: #fffbcc; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                        <p><strong>"When this diagnosis [P91.6 HIE] is stated, the individual neurological effects are not coded (e.g. seizures)."</strong></p>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">What IS Captured:</h4>
+                    <ul>
+                        <li>✅ P91.6 (HIE) - includes the seizures</li>
+                        <li>✅ Intervention code for EEG monitoring (1.HZ.30.JN)</li>
+                        <li>✅ Phenobarbital would be documented in medication list</li>
+                    </ul>
+
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>✅ Correct Approach:</strong> The seizures are documented in the clinical notes and intervention codes, but P91.6 alone captures the neurological manifestations.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 4 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #4: Sequencing Type 1 Diagnoses - All Equal?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Multiple Critical Conditions - How to Order?</h4>
+                    
+                    <p>This baby had FOUR Type 1 diagnoses:</p>
+                    <ul>
+                        <li>P28.5 (Respiratory failure)</li>
+                        <li>P29.30 (PPHN)</li>
+                        <li>P96.0 (Acute kidney injury)</li>
+                        <li>P20.1 (Fetal asphyxia)</li>
+                    </ul>
+
+                    <div class="success-box" style="margin-top: 15px;">
+                        <p><strong>✅ CIHI Standard for Type 1 Diagnoses:</strong></p>
+                        <p style="margin-top: 10px;">As stated in Fletcher & Lokun page 30.3: <strong>"Diagnosis type 1. Other conditions which do not impact the length of stay or treatment are assigned diagnosis type 0."</strong></p>
+                        <p style="margin-top: 10px;"><strong>All Type 1 diagnoses are of EQUAL importance.</strong> They can be listed in any order. The sequence doesn't matter because they're all comorbidities that impacted care equally.</p>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Common Sequencing Approaches:</h4>
+                    <ul>
+                        <li><strong>By organ system:</strong> Respiratory → Cardiovascular → Renal → Other</li>
+                        <li><strong>By temporal order:</strong> What developed first → What came later</li>
+                        <li><strong>By treatment intensity:</strong> Most intensive interventions first</li>
+                    </ul>
+
+                    <p style="margin-top: 15px;"><strong>→ Any of these is acceptable! The important part is that they're ALL coded as Type 1.</strong></p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('quiz')">
+                    Test Your Knowledge →
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Tab -->
+        <div id="quiz" class="tab-content">
+            <h2>💬 Test Your Understanding</h2>
+
+            <div class="alert alert-warning">
+                <strong>💡 These Questions:</strong> Test your ability to handle complex asphyxia and HIE scenarios!
+            </div>
+
+            <!-- Question 1 -->
+            <div class="quiz-question">
+                <h3>Question 1: Asphyxia WITHOUT HIE</h3>
+                <p><strong>Same scenario but baby does NOT develop HIE - just had low Apgar scores and required brief resuscitation, then recovered quickly. Cord pH 6.85. Discharged Day 2. What's the MRDx?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q1')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q1">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Z38.010</strong> (Single liveborn, cesarean) = Type M (Main)</p>
+                    <p><strong>P20.1</strong> (Fetal asphyxia) = Type 2 (Significant diagnosis)</p>
+                    <p><strong>Rationale:</strong> Without HIE or other major complications, the baby is classified as "unhealthy" but Z38.010 remains the MRDx. The asphyxia is significant enough to warrant Type 2 (not Type 1) because it required resuscitation but resolved quickly and didn't drive extended LOS.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question">
+                <h3>Question 2: Capillary Blood Gas Instead</h3>
+                <p><strong>Baby has normal cord gases (pH 7.25). But 2 hours after birth, develops severe respiratory distress. Capillary blood gas shows pH 6.95, base deficit 15. Would you code P20.1 or P21.9?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q2')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q2">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>P21.9</strong> (Newborn asphyxia)</p>
+                    <p><strong>NOT P20.1</strong> (Fetal asphyxia)</p>
+                    <p><strong>Rationale:</strong> The acidosis occurred AFTER birth (capillary blood gas 2 hours post-delivery), not during labour/delivery. P20.- is reserved for intrauterine/intrapartum asphyxia documented by CORD blood gases. P21.9 is for postnatal asphyxia documented by capillary or arterial (non-cord) blood gases.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question">
+                <h3>Question 3: Borderline Cord pH</h3>
+                <p><strong>Cord pH is 7.05 (just above the 7.0 cutoff), base deficit 10 (below 12 cutoff). Baby had fetal bradycardia and needed resuscitation. Do you code P20.1?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q3')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q3">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>NO - Do NOT code P20.1</strong></p>
+                    <p><strong>Rationale:</strong> Per Fletcher & Lokun criteria, P20.1 requires EITHER pH ≤7.0 OR base deficit ≥12. This baby has pH 7.05 (doesn't meet ≤7.0) AND base deficit 10 (doesn't meet ≥12). Neither criterion is met, so P20.1 is not assigned even though there was fetal distress. The resuscitation would be coded as interventions (e.g., 1.GZ.31.CB-EP) but the asphyxia diagnosis is not warranted.</p>
+                    <p style="margin-top: 10px;"><strong>What WOULD be coded:</strong> P03.89 (Newborn affected by other specified complications of labour and delivery) as Type 0 if documented, or possibly no diagnosis code at all if baby recovered quickly.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <h3>Question 4: If Seizures Started BEFORE HIE Diagnosed</h3>
+                <p><strong>In this case, seizures were noted at Hour 4. HIE wasn't officially diagnosed until Hour 6 when hypothermia started. Should you code the seizures separately since they were "first"?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q4')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q4">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>NO - Still do NOT code seizures separately</strong></p>
+                    <p><strong>Rationale:</strong> Coding is based on the FINAL diagnosis at discharge, not the temporal order of symptom recognition. By discharge, the diagnosis is P91.6 (HIE), and the seizures are understood to be a manifestation of HIE. Per Fletcher & Lokun: "When this diagnosis is stated, the individual neurological effects are not coded (e.g. seizures)." The timing of when clinicians recognized vs named the condition doesn't change the coding.</p>
+                </div>
+            </div>
+
+            <!-- Completion Box -->
+            <div class="completion-box">
+                <h3 style="margin-top: 0;">🎉 Outstanding!</h3>
+                <p>You've mastered one of the most complex newborn coding scenarios:</p>
+                <ul>
+                    <li>HIE vs asphyxia hierarchy and sequencing</li>
+                    <li>P20.1 vs P21.9 distinction based on cord blood criteria</li>
+                    <li>When NOT to code manifestations (seizures within HIE)</li>
+                    <li>Sequencing multiple critical Type 1 diagnoses</li>
+                    <li>Understanding CIHI standards for newborn asphyxia</li>
+                </ul>
+                <a href="/">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span:last-child');
+            
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                arrow.textContent = '▼';
+            } else {
+                arrow.textContent = '▶';
+            }
+        }
+
+        function showAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            answer.classList.add('show');
+            event.target.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
