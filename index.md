@@ -51,7 +51,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 ### Newborn Cases
 
-**🔹 Case 3: Preterm Infant with RDS and Jaundice** ⭐⭐⭐⭐⭐
+**Case 1: Preterm Infant with RDS and Jaundice** ⭐⭐⭐⭐⭐
 
 *Complexity: Expert Level*
 
@@ -63,21 +63,37 @@ This site showcases coding practice cases I developed while preparing for my cli
 - Rule-out sepsis coding (Z03.71)
 - CPAP and phototherapy intervention coding
 
-[📱 View Interactive Case →](/cases/preterm-rds.html)
+**[📱 View Interactive Case →](/cases/preterm-rds.html)**
+
 ---
 
-**🔹 Case 4: Term Newborn with Birth Trauma and ABO Incompatibility** ⭐⭐⭐⭐
+**Case 2: Birth Trauma with Cephalohematoma** ⭐⭐⭐⭐
 
-*Complexity: Advanced*
+*Complexity: Advanced Level*
 
 **Key Learning Points:**
-- Operative vaginal delivery classification (vacuum = still vaginal, Z38.00)
-- Cephalohematoma (P12.0) vs caput succedaneum distinction
-- ABO incompatibility (P55.1) vs Rh incompatibility (P55.0)
-- Multiple causes of jaundice (birth trauma + hemolytic disease)
-- Feeding problem coding and significance criteria
+- Birth trauma significance criteria (P10-P15)
+- When cephalohematoma warrants Type 1 vs Type 0 diagnosis
+- Anemia secondary to birth trauma (P61.3)
+- Instrumental delivery impact on Z38 coding
+- Minor vs major birth injury distinction
 
-*Full case coming soon*
+**[📱 View Interactive Case →](/cases/birth-trauma.html)**
+
+---
+
+**Case 3: Birth Asphyxia with Hypoxic Ischemic Encephalopathy** ⭐⭐⭐⭐⭐
+
+*Complexity: Expert Level*
+
+**Key Learning Points:**
+- HIE (P91.6) as most responsible diagnosis when present
+- P20.1 (fetal) vs P21.9 (newborn) asphyxia based on cord blood criteria
+- Sequencing multiple critical conditions (HIE, respiratory failure, PPHN)
+- When seizures are NOT coded separately (part of HIE)
+- Mechanical ventilation intervention coding
+
+**[📱 View Interactive Case →](/cases/birth-asphyxia.html)**
 
 ---
 
