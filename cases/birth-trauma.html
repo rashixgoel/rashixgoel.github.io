@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Birth Trauma with Cephalohematoma | Rashi Goel Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 20px 0 10px 0;
+            font-size: 2em;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .overview {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #f5576c;
+        }
+
+        .overview h2 {
+            margin-bottom: 15px;
+        }
+
+        .patient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            border: none;
+            background: transparent;
+            color: #495057;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #f8f9fa;
+        }
+
+        .tab.active {
+            background: #f5576c;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .clinical-doc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .clinical-doc h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .clinical-doc h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .code-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .code-box-primary {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+
+        .code-box-secondary {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+        }
+
+        .code-box-tertiary {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .code-item {
+            margin-bottom: 15px;
+        }
+
+        .code-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .code-description {
+            margin-top: 5px;
+            color: #495057;
+        }
+
+        .code-rationale {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #218838;
+        }
+
+        .btn-secondary {
+            background: #f5576c;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #e04357;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .collapsible {
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            width: 100%;
+            padding: 20px;
+            background: #f8f9fa;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: #e9ecef;
+        }
+
+        .collapsible-header.active {
+            background: #f5576c;
+            color: white;
+        }
+
+        .collapsible-content {
+            padding: 20px;
+            background: white;
+            display: none;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
+        .error-box {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .success-box {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #28a745;
+        }
+
+        .quiz-question {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-question h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .quiz-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #d4edda;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .quiz-answer.show {
+            display: block;
+        }
+
+        .completion-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .completion-box ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .completion-box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: white;
+            color: #f5576c;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="back-link">← Back to Portfolio</a>
+            <h1>Case Study: Birth Trauma with Cephalohematoma</h1>
+            <div class="meta-info">
+                <span>📊 Complexity: ⭐⭐⭐⭐ Advanced</span>
+                <span>🏥 Setting: NICU</span>
+                <span>📅 LOS: 4 days</span>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="overview">
+            <h2>📋 Case Overview</h2>
+            <div class="patient-grid">
+                <div><strong>Patient:</strong> Male newborn</div>
+                <div><strong>Gestational Age:</strong> 39 weeks 2 days</div>
+                <div><strong>Birth Weight:</strong> 3,780 grams</div>
+                <div><strong>Delivery:</strong> Vacuum-assisted vaginal</div>
+            </div>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">🎯 Key Learning Objectives:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Birth trauma coding (P10-P15) - when does it warrant Type 1 vs Type 0?</li>
+                <li>Cephalohematoma significance criteria</li>
+                <li>Anemia secondary to birth trauma vs other causes</li>
+                <li>Instrumental delivery complications (vacuum, forceps)</li>
+                <li>Diagnosis type assignment based on clinical significance</li>
+            </ul>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('clinical')">📄 Clinical Documentation</button>
+            <button class="tab" onclick="showTab('coding')">📊 Coding Abstract</button>
+            <button class="tab" onclick="showTab('rationale')">🧠 Coding Rationale</button>
+            <button class="tab" onclick="showTab('quiz')">💬 Test Your Knowledge</button>
+        </div>
+
+        <!-- Clinical Documentation Tab -->
+        <div id="clinical" class="tab-content active">
+            <h2>📄 Clinical Documentation</h2>
+            
+            <div class="alert alert-warning">
+                <strong>💡 Interactive Challenge:</strong> Read this case and identify which birth injuries warrant comorbid coding vs Type 0. Try coding it yourself first!
+            </div>
+
+            <div class="clinical-doc">
+                <h3>NEWBORN DISCHARGE SUMMARY</h3>
+                
+                <p><strong>INFANT:</strong> Male</p>
+                <p><strong>MOTHER:</strong> 28 years old, G2P1→2</p>
+                <p><strong>DATE OF BIRTH:</strong> March 15, 2026, 14:23</p>
+                <p><strong>DATE OF DISCHARGE:</strong> March 19, 2026</p>
+                <p><strong>LENGTH OF STAY:</strong> 4 days</p>
+                
+                <h4>BIRTH HISTORY:</h4>
+                <ul>
+                    <li>Gestational Age: 39 weeks 2 days (TERM)</li>
+                    <li>Birth Weight: 3,780 grams</li>
+                    <li>Delivery: Vacuum-assisted vaginal delivery after prolonged second stage</li>
+                    <li>Indication for instrumentation: Maternal exhaustion, fetal heart rate decelerations</li>
+                    <li>Apgar Scores: 8 at 1 minute, 9 at 5 minutes</li>
+                </ul>
+
+                <h4>PHYSICAL EXAMINATION AT BIRTH:</h4>
+                <p>Large, soft swelling noted over RIGHT PARIETAL AREA—does not cross suture lines. Clinical diagnosis: CEPHALOHEMATOMA (subperiosteal hemorrhage).</p>
+                
+                <p>Additional minor findings:</p>
+                <ul>
+                    <li>Small 2cm bruise on left cheek (cosmetic, no treatment needed)</li>
+                    <li>Mild molding of skull (normal, resolved by Day 2)</li>
+                </ul>
+
+                <h4>HOSPITAL COURSE:</h4>
+                
+                <p><strong>Day of Life 1:</strong></p>
+                <p>Infant admitted to NICU for monitoring due to large cephalohematoma. Concern for blood loss into the hematoma and potential for anemia, hyperbilirubinemia.</p>
+                
+                <p><strong>Initial Labs:</strong></p>
+                <ul>
+                    <li>Hemoglobin: 142 g/L (normal range 140-195)</li>
+                    <li>Hematocrit: 0.45 (normal)</li>
+                    <li>Bilirubin: 68 μmol/L (within normal)</li>
+                </ul>
+
+                <p><strong>Day of Life 2:</strong></p>
+                <p>Cephalohematoma unchanged in size. Repeat hemoglobin: 128 g/L (DECREASED from 142).</p>
+                <p>Clinical concern: Ongoing bleeding into hematoma causing ANEMIA.</p>
+                <p>Bilirubin rising: 156 μmol/L (expected with blood reabsorption).</p>
+
+                <p><strong>Day of Life 3:</strong></p>
+                <p>Hemoglobin: 115 g/L (now MILD ANEMIA, Hgb <120 g/L for newborn).</p>
+                <p>Decision: Close monitoring, no transfusion needed.</p>
+                <p>Bilirubin peaked at 198 μmol/L but below phototherapy threshold for term infant.</p>
+
+                <p><strong>Day of Life 4:</strong></p>
+                <p>Hemoglobin stable at 118 g/L.</p>
+                <p>Cephalohematoma beginning to organize (will reabsorb over weeks to months).</p>
+                <p>Infant feeding well, otherwise healthy.</p>
+
+                <h4>DISCHARGE DIAGNOSES:</h4>
+                <ol>
+                    <li>Term male infant, vacuum-assisted delivery</li>
+                    <li>Cephalohematoma (right parietal)</li>
+                    <li>Anemia secondary to blood loss into cephalohematoma</li>
+                    <li>Minor facial bruising (resolved, no intervention)</li>
+                </ol>
+
+                <h4>DISCHARGE INSTRUCTIONS:</h4>
+                <p>Follow-up with pediatrician in 1 week to check hemoglobin. Cephalohematoma will resolve spontaneously over 2-3 months. NO aspiration or drainage needed (contraindicated due to infection risk).</p>
+
+                <p><strong>DISCHARGE WEIGHT:</strong> 3,680 grams</p>
+                <p><strong>DISCHARGE CONDITION:</strong> Stable</p>
+                <p><strong>DISPOSITION:</strong> Home with parents</p>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('coding')">
+                    Ready? View My Coding →
+                </button>
+            </div>
+        </div>
+
+        <!-- Coding Abstract Tab -->
+        <div id="coding" class="tab-content">
+            <h2>📊 Coding Abstract</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Key Question:</strong> Which birth injuries are significant enough for comorbid diagnosis vs Type 0?
+            </div>
+
+            <!-- Demographics -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">Demographics</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <div><strong>Gender:</strong> M</div>
+                    <div><strong>Gestational Age:</strong> 39 weeks 2 days</div>
+                    <div><strong>Birth Weight:</strong> 3,780 grams</div>
+                    <div><strong>Delivery:</strong> Vacuum-assisted vaginal</div>
+                    <div><strong>LOS:</strong> 4 days</div>
+                </div>
+            </div>
+
+            <!-- Main Condition -->
+            <div class="code-box code-box-primary">
+                <h3 style="margin-top: 0;">🎯 MAIN CONDITION (Mandatory for ALL Newborns)</h3>
+                <div class="code-item">
+                    <div class="code-number">Z38.000</div>
+                    <div class="code-description">Single liveborn infant, delivered vaginally</div>
+                    <div class="code-rationale"><strong>Type M</strong> - Main condition (despite vacuum assist, delivery mode is vaginal)</div>
+                </div>
+            </div>
+
+            <!-- Significant Diagnoses -->
+            <div class="code-box code-box-secondary">
+                <h3 style="margin-top: 0;">⚡ Significant Diagnoses (Type 1 - Comorbid)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">P12.0</div>
+                    <div class="code-description">Cephalohematoma due to birth injury</div>
+                    <div class="code-rationale">✓ Required extended NICU stay for monitoring<br>
+                    ✓ Required serial hemoglobin checks (specialist labs)<br>
+                    ✓ Led to anemia requiring monitoring</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number">P61.3</div>
+                    <div class="code-description">Congenital anemia from fetal blood loss</div>
+                    <div class="code-rationale">✓ Hemoglobin dropped from 142 → 115 g/L<br>
+                    ✓ Required serial monitoring and extended stay<br>
+                    ✓ Secondary to cephalohematoma blood loss</div>
+                </div>
+            </div>
+
+            <!-- Type 0 Diagnoses -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">⚪ Type 0 Diagnoses (Present but Not Significant)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">P03.2</div>
+                    <div class="code-description">Newborn affected by instrumental delivery (vacuum)</div>
+                    <div class="code-rationale">⚪ Type 0 - Documents delivery method but not independently treated<br>
+                    (Note: Fletcher & Lokun pg 30.6 states minor bruising alone = Type 0)</div>
+                </div>
+
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📚 Textbook Note:</strong> Minor facial bruising does NOT get coded separately. Per Fletcher & Lokun page 30.6: "Minor birth trauma not coded unless it impacts treatment or length of stay. Most birth injuries heal without sequelae."
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-secondary" onclick="showTab('rationale')">
+                    Understand the Decisions? View Rationale →
+                </button>
+            </div>
+        </div>
+
+        <!-- Rationale Tab -->
+        <div id="rationale" class="tab-content">
+            <h2>🧠 Coding Rationale & Decision Points</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Critical Skill:</strong> Knowing when birth trauma is significant enough to code vs when it's just Type 0 documentation!
+            </div>
+
+            <!-- Decision 1 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #1: Why P12.0 Gets Type 1 (Comorbid)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Birth Trauma Significance Criteria:</h4>
+                    
+                    <div class="success-box">
+                        <strong>✅ This cephalohematoma IS significant because:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 0;">
+                            <li>Required NICU admission (not routine newborn nursery)</li>
+                            <li>Required serial hemoglobin monitoring (lab interventions)</li>
+                            <li>Led to anemia requiring follow-up</li>
+                            <li>Extended length of stay to 4 days</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">From Fletcher & Lokun Chapter 30, Page 30.6:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 14px;">
+                        <p><strong>"Birth trauma warrant assignment of the appropriate code from block P10-P15 and a comorbid diagnosis type:"</strong></p>
+                        <ul>
+                            <li>intracranial laceration and hemorrhage</li>
+                            <li>cerebral edema</li>
+                            <li>cranial, spinal or peripheral nerve injury</li>
+                            <li><strong>cephalohematoma that becomes infected or is severe enough to cause anemia, shock, hemolytic jaundice requiring phototherapy, monitoring or sutures</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="error-box" style="margin-top: 20px;">
+                        <strong>❌ Common Error:</strong> Coding ALL cephalohematomas as Type 1<br>
+                        <strong>✅ Correct:</strong> Only cephalohematomas that meet significance criteria (anemia, infection, phototherapy, shock)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 2 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #2: Why Code P61.3 (Anemia) Separately?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Anemia Secondary to Birth Trauma:</h4>
+                    
+                    <p><strong>Two codes needed:</strong></p>
+                    
+                    <div class="success-box" style="margin-bottom: 15px;">
+                        <strong>P12.0</strong> - Identifies the birth injury (cephalohematoma)<br>
+                        <strong>P61.3</strong> - Identifies the complication (anemia from blood loss)
+                    </div>
+
+                    <h4>Why P61.3 is Type 1 (Comorbid)?</h4>
+                    <ul>
+                        <li>Hemoglobin dropped significantly (142 → 115 g/L)</li>
+                        <li>Required serial monitoring (additional lab work)</li>
+                        <li>Extended hospital stay for observation</li>
+                        <li>Requires outpatient follow-up</li>
+                    </ul>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>💡 Key Principle:</strong> When a birth injury CAUSES a secondary condition that requires treatment/monitoring, code BOTH:
+                        <ol style="margin-top: 10px;">
+                            <li>The birth injury itself (P12.0)</li>
+                            <li>The resulting complication (P61.3)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 3 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #3: Why Facial Bruising NOT Coded?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Minor Birth Trauma ≠ Automatic Coding</h4>
+                    
+                    <div class="error-box">
+                        <strong>The facial bruise is NOT coded because:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 0;">
+                            <li>❌ Did not require treatment</li>
+                            <li>❌ Did not impact length of stay</li>
+                            <li>❌ Resolved spontaneously</li>
+                            <li>❌ No monitoring needed</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Fletcher & Lokun Guidance (Page 30.6):</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px;">
+                        <p><strong>"Minor birth trauma is not coded unless it impacts treatment or length of stay."</strong></p>
+                        <p style="margin-top: 10px;">Examples of minor trauma typically NOT coded:</p>
+                        <ul>
+                            <li>Uncomplicated cephalohematoma (small, no anemia)</li>
+                            <li>Uncomplicated chignon (from vacuum)</li>
+                            <li>Uncomplicated caput succedaneum</li>
+                            <li>Superficial abrasions and lacerations</li>
+                            <li>Minor bruising</li>
+                        </ul>
+                    </div>
+
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>✅ The Rule:</strong> If injury is documented but does NOT impact treatment or LOS → diagnosis type 0 (or don't code at all if very minor)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 4 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #4: Z38.000 vs Z38.010 (Vacuum = Vaginal?)</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Delivery Method Coding:</h4>
+                    
+                    <div class="success-box">
+                        <strong>Z38.000</strong> - Single liveborn, vaginal delivery<br>
+                        (NOT Z38.010 for cesarean)
+                    </div>
+
+                    <h4 style="margin-top: 15px;">Why Vacuum = Vaginal:</h4>
+                    <p>Instrumental deliveries (vacuum, forceps) are still classified as <strong>vaginal deliveries</strong> for Z38 coding purposes.</p>
+
+                    <table style="margin-top: 15px;">
+                        <thead>
+                            <tr>
+                                <th>Delivery Method</th>
+                                <th>Z38 Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Spontaneous vaginal</td>
+                                <td>Z38.000</td>
+                            </tr>
+                            <tr>
+                                <td>Vacuum-assisted vaginal</td>
+                                <td>Z38.000</td>
+                            </tr>
+                            <tr>
+                                <td>Forceps-assisted vaginal</td>
+                                <td>Z38.000</td>
+                            </tr>
+                            <tr>
+                                <td>Cesarean section</td>
+                                <td>Z38.010</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>💡 Remember:</strong> The instrumental delivery is captured by P03.2 (newborn affected by instrumental delivery), NOT in the Z38 code.
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('quiz')">
+                    Test Your Knowledge →
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Tab -->
+        <div id="quiz" class="tab-content">
+            <h2>💬 Test Your Understanding</h2>
+
+            <div class="alert alert-warning">
+                <strong>💡 Interview Scenarios:</strong> Practice identifying when birth trauma is significant!
+            </div>
+
+            <!-- Question 1 -->
+            <div class="quiz-question">
+                <h3>Question 1: Smaller Cephalohematoma</h3>
+                <p><strong>What if the cephalohematoma was small (3cm), hemoglobin stayed normal at 145 g/L, and baby went home on Day 2?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q1')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q1">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>P12.0 would be Type 0 (or possibly not coded at all)</strong></p>
+                    <p><strong>P61.3 would NOT be coded</strong> (no anemia)</p>
+                    <p><strong>Rationale:</strong> Small cephalohematoma that doesn't cause anemia, doesn't require monitoring, and doesn't extend LOS is considered minor birth trauma. Per Fletcher & Lokun, it wouldn't meet criteria for comorbid diagnosis.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question">
+                <h3>Question 2: Infected Cephalohematoma</h3>
+                <p><strong>What if on Day 3 the cephalohematoma became infected (red, warm, fluctuant) and required IV antibiotics?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q2')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q2">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Keep P12.0</strong> (Type 1 - infected cephalohematoma meets significance criteria)</p>
+                    <p><strong>Add appropriate infection code</strong> from Chapter I (A00-B99)</p>
+                    <p><strong>P61.3 coding depends</strong> on whether anemia is still present</p>
+                    <p><strong>Rationale:</strong> Fletcher & Lokun specifically states "cephalohematoma that becomes infected" warrants comorbid coding. IV antibiotics = significant intervention.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question">
+                <h3>Question 3: Forceps Instead of Vacuum</h3>
+                <p><strong>What if this exact same scenario occurred but with forceps delivery instead of vacuum?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q3')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q3">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>All diagnosis codes stay EXACTLY the same</strong></p>
+                    <p><strong>Only change:</strong> P03.2 documentation would note "forceps" instead of "vacuum"</p>
+                    <p><strong>Z38.000 stays the same</strong> (forceps = vaginal delivery)</p>
+                    <p><strong>Rationale:</strong> The coding is based on the INJURY and its significance, not the specific instrument used. Both vacuum and forceps are vaginal delivery methods.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <h3>Question 4: Clinical Judgment Challenge</h3>
+                <p><strong>Baby has cephalohematoma + hemoglobin 122 g/L (just slightly below normal 120-140). No symptoms, feeding well. Discharged Day 2. Code P61.3 (anemia)?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q4')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q4">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Clinical judgment call - could go either way:</strong></p>
+                    
+                    <p><strong>Argument FOR coding P61.3 (Type 3 or 0):</strong></p>
+                    <ul>
+                        <li>Hgb technically below normal</li>
+                        <li>May require outpatient follow-up</li>
+                    </ul>
+
+                    <p><strong>Argument AGAINST coding P61.3:</strong></p>
+                    <ul>
+                        <li>Borderline value (122 vs 120 cutoff)</li>
+                        <li>No treatment required</li>
+                        <li>Didn't extend LOS</li>
+                    </ul>
+
+                    <p><strong>Best practice:</strong> If anemia is mentioned in discharge diagnosis → code it as Type 3 (additional diagnosis). If not mentioned and Hgb only borderline → likely don't code.</p>
+                </div>
+            </div>
+
+            <!-- Completion Box -->
+            <div class="completion-box">
+                <h3 style="margin-top: 0;">🎉 Excellent Work!</h3>
+                <p>You now understand birth trauma coding complexities:</p>
+                <ul>
+                    <li>Significance criteria for comorbid diagnosis (Type 1)</li>
+                    <li>Minor vs major birth trauma distinction</li>
+                    <li>When to code secondary complications (anemia)</li>
+                    <li>Instrumental delivery impact on Z38 coding</li>
+                    <li>Clinical judgment in borderline cases</li>
+                </ul>
+                <a href="/">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span:last-child');
+            
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                arrow.textContent = '▼';
+            } else {
+                arrow.textContent = '▶';
+            }
+        }
+
+        function showAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            answer.classList.add('show');
+            event.target.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
