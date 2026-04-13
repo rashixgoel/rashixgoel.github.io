@@ -404,7 +404,8 @@
             
             <h3 style="margin-top: 20px; margin-bottom: 10px;">🎯 Key Learning Objectives:</h3>
             <ul style="margin-left: 20px;">
-                <li>Z38 coding as mandatory main condition for ALL newborns</li>
+                <li>Most responsible diagnosis selection for unhealthy newborns</li>
+                <li>Z38 coding - Type M for healthy, Type 0 for unhealthy newborns</li>
                 <li>Prematurity: Code BOTH gestational age (P07.37) AND birth weight (P07.14)</li>
                 <li>RDS (P22.0) vs TTN (P22.1) distinction</li>
                 <li>Preterm-associated jaundice coding (P59.0)</li>
@@ -496,7 +497,7 @@
             <h2>📊 Coding Abstract</h2>
 
             <div class="alert alert-info">
-                <strong>💡 Tip:</strong> Compare this with your own coding! Did you catch all the required codes?
+                <strong>💡 Tip:</strong> Compare this with your own coding! Did you catch all the required codes and diagnosis types?
             </div>
 
             <!-- Demographics -->
@@ -513,51 +514,69 @@
 
             <!-- Main Condition -->
             <div class="code-box code-box-primary">
-                <h3 style="margin-top: 0;">🎯 MAIN CONDITION (Mandatory for ALL Newborns)</h3>
+                <h3 style="margin-top: 0;">🎯 MOST RESPONSIBLE DIAGNOSIS (Type M)</h3>
                 <div class="code-item">
-                    <div class="code-number">Z38.01</div>
-                    <div class="code-description">Single liveborn infant, delivered by cesarean section</div>
-                    <div class="code-rationale"><strong>Type M</strong> - Main condition</div>
+                    <div class="code-number">P22.0</div>
+                    <div class="code-description">Respiratory distress syndrome of newborn</div>
+                    <div class="code-rationale"><strong>Type M</strong> - Most responsible diagnosis<br>
+                    RDS required CPAP intervention and drove the NICU admission and initial management</div>
+                </div>
+                
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📚 CIHI Standard:</strong> For unhealthy newborns, the clinically significant condition (RDS) becomes Type M, NOT Z38. The Z38 code becomes Type 0.
                 </div>
             </div>
 
-            <!-- Significant Diagnoses -->
+            <!-- Type 1 Diagnoses -->
             <div class="code-box code-box-secondary">
-                <h3 style="margin-top: 0;">⚡ Significant Diagnoses (Type 2)</h3>
+                <h3 style="margin-top: 0;">⚡ Type 1 Diagnoses (Comorbid - Clinically Significant)</h3>
                 
                 <div class="code-item">
                     <div class="code-number">P07.37</div>
                     <div class="code-description">Preterm newborn, gestational age 34 completed weeks</div>
-                    <div class="code-rationale">✓ Required extended NICU care and monitoring</div>
-                </div>
-
-                <div class="code-item">
-                    <div class="code-number">P22.0</div>
-                    <div class="code-description">Respiratory distress syndrome of newborn</div>
-                    <div class="code-rationale">✓ Required CPAP intervention, extended stay</div>
+                    <div class="code-rationale">✓ Required extended NICU care and monitoring<br>
+                    ✓ Underlying risk factor for RDS and jaundice</div>
                 </div>
 
                 <div class="code-item">
                     <div class="code-number">P59.0</div>
                     <div class="code-description">Neonatal jaundice associated with preterm delivery</div>
-                    <div class="code-rationale">✓ Required phototherapy treatment</div>
+                    <div class="code-rationale">✓ Required phototherapy treatment<br>
+                    ✓ Extended length of stay for monitoring</div>
                 </div>
-            </div>
 
-            <!-- Additional Diagnoses -->
-            <div class="code-box code-box-tertiary">
-                <h3 style="margin-top: 0;">📌 Additional Diagnoses (Type 3)</h3>
-                
                 <div class="code-item">
                     <div class="code-number">P07.14</div>
                     <div class="code-description">Other low birth weight newborn, 2000-2499 grams</div>
-                    <div class="code-rationale">✓ Captures birth weight status</div>
+                    <div class="code-rationale">✓ Independent risk factor requiring monitoring<br>
+                    ✓ Captures birth weight status separately from gestational age</div>
                 </div>
 
                 <div class="code-item">
                     <div class="code-number">Z03.71</div>
                     <div class="code-description">Encounter for suspected infectious condition ruled out</div>
-                    <div class="code-rationale">✓ Antibiotics given empirically, cultures negative</div>
+                    <div class="code-rationale">✓ Empiric antibiotics given pending cultures<br>
+                    ✓ Influenced initial management decisions</div>
+                </div>
+
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>💡 Remember:</strong> Type 1 = "Other clinically significant conditions" that impacted management and/or length of stay. There is NO Type 2 or Type 3 on newborn abstracts!
+                </div>
+            </div>
+
+            <!-- Type 0 Diagnosis -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">⚪ Type 0 Diagnosis (Mandatory but Not Most Responsible)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">Z38.01</div>
+                    <div class="code-description">Single liveborn infant, delivered by cesarean section</div>
+                    <div class="code-rationale"><strong>Type 0</strong> - Mandatory on all newborn records<br>
+                    When baby is UNHEALTHY (has significant conditions), Z38 is Type 0, NOT Type M</div>
+                </div>
+
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📚 Fletcher & Lokun (Page 30.3):</strong> "A code from Z38.- is mandatory on all newborn records. When any other code is assigned as the most responsible diagnosis, a code from Z38.- is assigned as a diagnosis type 0."
                 </div>
             </div>
 
@@ -596,26 +615,37 @@
             <!-- Decision 1 -->
             <div class="collapsible">
                 <button class="collapsible-header" onclick="toggleCollapsible(this)">
-                    <span>🔥 Decision #1: Why Z38.01 as Main Condition?</span>
+                    <span>🔥 Decision #1: Why P22.0 (RDS) is Type M, NOT Z38.01?</span>
                     <span>▶</span>
                 </button>
                 <div class="collapsible-content">
-                    <h4>The Golden Rule for Newborns:</h4>
+                    <h4>The Rule for Unhealthy Newborns:</h4>
                     <div style="background: #fffbcc; padding: 15px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #ffc107;">
-                        <strong>EVERY newborn record MUST have Z38.x as the main condition.</strong> This is MANDATORY regardless of what else happened during hospitalization.
+                        <strong>This baby is UNHEALTHY</strong> because they have clinically significant conditions (RDS, prematurity, jaundice) that:
+                        <ul style="margin-top: 10px;">
+                            <li>Required NICU admission</li>
+                            <li>Required therapeutic interventions (CPAP, phototherapy)</li>
+                            <li>Extended length of stay to 14 days</li>
+                        </ul>
                     </div>
 
-                    <h4>Z38 Code Structure:</h4>
+                    <h4>From Fletcher & Lokun, Page 30.3:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 13px;">
+                        <p><strong>"When a newborn is considered unhealthy (i.e. has a clinically significant condition affecting management and/or length of stay), the appropriate code from Chapter XVI or Chapter XVII is assigned as the most responsible diagnosis."</strong></p>
+                        <p style="margin-top: 10px;"><strong>"A code from Z38.- is mandatory on all newborn records. When any other code is assigned as the most responsible diagnosis, a code from Z38.- is assigned as a diagnosis type 0."</strong></p>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Why P22.0 (RDS) is Type M:</h4>
                     <ul>
-                        <li><strong>First digit:</strong> 0 = singleton, 3 = twin, 6 = triplet</li>
-                        <li><strong>Second digit:</strong> 0 = vaginal, 1 = cesarean</li>
+                        <li>RDS required CPAP (major respiratory intervention)</li>
+                        <li>RDS drove the NICU admission</li>
+                        <li>RDS was the acute condition requiring immediate treatment</li>
+                        <li>Without RDS, this baby might have been managed differently</li>
                     </ul>
 
-                    <p><strong>This baby:</strong> Singleton (0) + Cesarean (1) = Z38.01</p>
-
-                    <div class="error-box">
-                        <strong>❌ Common Error:</strong> Using P22.0 (RDS) or P07.37 (preterm) as main condition<br>
-                        <strong>✅ Correct:</strong> ALWAYS Z38.x first, THEN other conditions
+                    <div class="error-box" style="margin-top: 15px;">
+                        <strong>❌ Common Error:</strong> Using Z38.01 as Type M for all newborns<br>
+                        <strong>✅ Correct:</strong> Z38 is Type M ONLY for healthy newborns. For unhealthy newborns, Z38 is Type 0.
                     </div>
                 </div>
             </div>
@@ -642,14 +672,15 @@
                     <h4>Why Both?</h4>
                     <p>They're <strong>independent risk factors</strong>:</p>
                     <ul>
-                        <li>Some babies are preterm but appropriate weight</li>
-                        <li>Some are term but low weight</li>
+                        <li>Some babies are preterm but appropriate weight for gestational age</li>
+                        <li>Some are term but low weight (IUGR/SGA)</li>
                         <li>This baby is BOTH preterm AND low birth weight</li>
+                        <li>Each condition independently impacts care and monitoring</li>
                     </ul>
 
                     <div class="alert alert-info" style="margin-top: 15px;">
                         <strong>💡 How to Count Weeks:</strong><br>
-                        34 weeks + 5 days = 34 COMPLETED weeks → P07.37 (code "7" = 34 weeks)
+                        34 weeks + 5 days = 34 COMPLETED weeks → P07.37 (the "7" in P07.37 means 34 weeks)
                     </div>
                 </div>
             </div>
@@ -666,10 +697,11 @@
                     <div class="success-box" style="margin-bottom: 15px;">
                         <strong>Evidence for RDS:</strong>
                         <ul style="margin-bottom: 0; margin-top: 10px;">
-                            <li>✓ Preterm infant (classic risk factor)</li>
+                            <li>✓ Preterm infant (34 weeks - classic risk factor)</li>
                             <li>✓ Immediate onset at birth</li>
-                            <li>✓ CXR: "ground-glass appearance, air bronchograms" (classic RDS)</li>
-                            <li>✓ Required CPAP</li>
+                            <li>✓ CXR: "ground-glass appearance, air bronchograms" (pathognomonic for RDS)</li>
+                            <li>✓ Required CPAP support</li>
+                            <li>✓ Gradual improvement over 3 days</li>
                         </ul>
                     </div>
 
@@ -684,14 +716,72 @@
                         <tbody>
                             <tr>
                                 <td><strong>P22.0 - RDS</strong></td>
-                                <td>Preterm, ground-glass CXR, needs respiratory support</td>
+                                <td>Preterm, ground-glass CXR, surfactant deficiency, needs respiratory support</td>
                             </tr>
                             <tr>
                                 <td><strong>P22.1 - TTN</strong></td>
-                                <td>Term, "wet lung," resolves quickly with minimal support</td>
+                                <td>Term or near-term, "wet lung" on CXR, retained fetal lung fluid, resolves quickly (24-48 hrs) with minimal support</td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- Decision 4 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #4: Why ALL Other Conditions are Type 1?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Understanding Type 1 (Comorbid) Diagnoses:</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>From Fletcher & Lokun, Page 30.3:</strong></p>
+                        <p style="margin-top: 10px;"><em>"Additional codes to identify other clinically significant conditions present at birth are assigned diagnosis type 1."</em></p>
+                    </div>
+
+                    <h4>Why Each Condition is Type 1:</h4>
+
+                    <div style="background: #d4edda; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
+                        <strong>P07.37 (Prematurity):</strong>
+                        <ul style="margin-top: 5px;">
+                            <li>Required extended NICU monitoring</li>
+                            <li>Risk factor for multiple complications</li>
+                            <li>Impacts discharge timing</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #d4edda; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
+                        <strong>P59.0 (Jaundice):</strong>
+                        <ul style="margin-top: 5px;">
+                            <li>Required phototherapy (therapeutic intervention)</li>
+                            <li>Required serial bilirubin monitoring</li>
+                            <li>Extended length of stay</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #d4edda; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
+                        <strong>P07.14 (Low birth weight):</strong>
+                        <ul style="margin-top: 5px;">
+                            <li>Required feeding support and monitoring</li>
+                            <li>Independent risk factor from prematurity</li>
+                            <li>Affects thermal regulation</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #d4edda; padding: 15px; border-radius: 6px;">
+                        <strong>Z03.71 (Rule-out sepsis):</strong>
+                        <ul style="margin-top: 5px;">
+                            <li>Empiric antibiotics administered</li>
+                            <li>Blood cultures drawn</li>
+                            <li>Influenced initial management</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-info" style="margin-top: 15px;">
+                        <strong>💡 Key Principle:</strong> If a condition required treatment, monitoring, or extended the length of stay, it's Type 1. There is NO Type 2 or Type 3 on newborn abstracts!
+                    </div>
                 </div>
             </div>
 
@@ -721,8 +811,9 @@
 
                 <div class="quiz-answer" id="q1">
                     <strong>✅ Answer:</strong>
-                    <p><strong>Change P07.37 to P07.35</strong> (32 weeks instead of 34 weeks)</p>
-                    <p>Everything else stays the same. The code changes because gestational age is different, but the clinical scenario (RDS, jaundice, etc.) would be similar.</p>
+                    <p><strong>Change P07.37 to P07.35</strong> (32 completed weeks instead of 34 weeks)</p>
+                    <p>Everything else stays the same. The code changes because gestational age is different, but the clinical scenario (RDS, jaundice, etc.) would be similar or possibly more severe.</p>
+                    <p><strong>Type M would still be P22.0</strong> (RDS remains the most responsible diagnosis)</p>
                 </div>
             </div>
 
@@ -737,9 +828,9 @@
 
                 <div class="quiz-answer" id="q2">
                     <strong>✅ Answer:</strong>
-                    <p><strong>Remove Z03.71</strong> (rule-out sepsis)</p>
-                    <p><strong>Add P36.4</strong> (Sepsis of newborn due to E. coli) as Type 2</p>
-                    <p>Antibiotics would continue for full course, significantly changing the clinical course and potentially extending the length of stay.</p>
+                    <p><strong>Remove Z03.71</strong> (rule-out sepsis - no longer a "rule-out")</p>
+                    <p><strong>Add P36.4</strong> (Sepsis of newborn due to E. coli) as Type 1</p>
+                    <p><strong>Consider if Type M changes:</strong> If sepsis became the dominant clinical issue requiring the longest treatment, P36.4 might become Type M instead of P22.0. Clinical judgment based on which condition drove length of stay and resource use.</p>
                 </div>
             </div>
 
@@ -756,10 +847,28 @@
                     <strong>✅ Answer:</strong>
                     <ul>
                         <li><strong>Remove P07.37 and P07.14</strong> (no prematurity/low birth weight)</li>
-                        <li><strong>Keep P22.0</strong> (RDS can rarely occur in term infants)</li>
-                        <li><strong>Change P59.0 to P59.9</strong> (not preterm-associated jaundice)</li>
-                        <li><strong>Change Z38.01 to Z38.00</strong> if delivered vaginally</li>
+                        <li><strong>Keep P22.0 as Type M</strong> (RDS can rarely occur in term infants, e.g., from maternal diabetes or C-section without labor)</li>
+                        <li><strong>Change P59.0 to P59.9</strong> (not preterm-associated jaundice, would be unspecified neonatal jaundice)</li>
+                        <li><strong>Z38.01 stays the same</strong> (cesarean delivery) or changes to Z38.00 if delivered vaginally</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <h3>Question 4: Healthy Baby Scenario</h3>
+                <p><strong>What if this same baby (34+5 weeks, 2,180g) had NO respiratory distress, NO jaundice, and went home on Day 2?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q4')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q4">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Z38.01 becomes Type M</strong> (baby is now considered HEALTHY)</p>
+                    <p><strong>P07.37 and P07.14 become Type 0</strong> (or not coded at all)</p>
+                    <p><strong>Rationale:</strong> Per Fletcher & Lokun page 30.3, "When a healthy, liveborn infant is born in hospital or is admitted immediately after birth, having not previously been admitted to any other hospital, a code from Z38.- is assigned as the most responsible diagnosis. A newborn is considered healthy when factors such as prematurity, small birth hematoma, or slight jaundice are considered to have no effect on the health of the infant."</p>
+                    <p>If the preterm infant had no complications and was discharged quickly, they would be considered "healthy" despite technical prematurity.</p>
                 </div>
             </div>
 
@@ -768,11 +877,11 @@
                 <h3 style="margin-top: 0;">🎉 Congratulations!</h3>
                 <p>You've completed this interactive coding case. You now understand:</p>
                 <ul>
-                    <li>Z38 mandatory main condition for newborns</li>
+                    <li>Most responsible diagnosis selection for unhealthy newborns</li>
+                    <li>Z38 as Type M for healthy, Type 0 for unhealthy newborns</li>
                     <li>Dual prematurity coding (gestational age + birth weight)</li>
                     <li>RDS vs TTN clinical distinction</li>
-                    <li>Preterm jaundice coding specificity</li>
-                    <li>Rule-out sepsis with negative cultures</li>
+                    <li>Type 1 comorbid diagnosis criteria (NO Type 2 or Type 3!)</li>
                     <li>Intervention coding for CPAP and phototherapy</li>
                 </ul>
                 <a href="/">← Back to Portfolio</a>
@@ -782,21 +891,15 @@
 
     <script>
         function showTab(tabName) {
-            // Hide all tabs
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
             
-            // Remove active from all buttons
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => tab.classList.remove('active'));
             
-            // Show selected tab
             document.getElementById(tabName).classList.add('active');
-            
-            // Activate selected button
             event.target.classList.add('active');
             
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
