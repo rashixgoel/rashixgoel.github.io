@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Laparoscopic Cholecystectomy | Rashi Goel Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 20px 0 10px 0;
+            font-size: 2em;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .overview {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #43e97b;
+        }
+
+        .overview h2 {
+            margin-bottom: 15px;
+        }
+
+        .patient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            border: none;
+            background: transparent;
+            color: #495057;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #f8f9fa;
+        }
+
+        .tab.active {
+            background: #43e97b;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .clinical-doc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .clinical-doc h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .clinical-doc h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .code-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .code-box-primary {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+
+        .code-box-secondary {
+            background: #e7f3ff;
+            border: 1px solid #17a2b8;
+        }
+
+        .code-box-tertiary {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .code-item {
+            margin-bottom: 15px;
+        }
+
+        .code-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .code-description {
+            margin-top: 5px;
+            color: #495057;
+        }
+
+        .code-rationale {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #218838;
+        }
+
+        .btn-secondary {
+            background: #43e97b;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #32d86a;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .collapsible {
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            width: 100%;
+            padding: 20px;
+            background: #f8f9fa;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: #e9ecef;
+        }
+
+        .collapsible-header.active {
+            background: #43e97b;
+            color: white;
+        }
+
+        .collapsible-content {
+            padding: 20px;
+            background: white;
+            display: none;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
+        .error-box {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .success-box {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #28a745;
+        }
+
+        .quiz-question {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-question h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .quiz-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #d4edda;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .quiz-answer.show {
+            display: block;
+        }
+
+        .completion-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .completion-box ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .completion-box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: white;
+            color: #43e97b;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="back-link">← Back to Portfolio</a>
+            <h1>Case Study: Laparoscopic Cholecystectomy for Chronic Cholecystitis</h1>
+            <div class="meta-info">
+                <span>📊 Complexity: ⭐⭐⭐⭐ Advanced</span>
+                <span>🏥 Setting: Surgical Day Care</span>
+                <span>📅 Duration: Same-day surgery</span>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="overview">
+            <h2>📋 Case Overview</h2>
+            <div class="patient-grid">
+                <div><strong>Patient:</strong> 52-year-old female</div>
+                <div><strong>Procedure:</strong> Laparoscopic cholecystectomy</div>
+                <div><strong>Setting:</strong> Surgical Day Care (SDC)</div>
+                <div><strong>Admission Type:</strong> Elective</div>
+            </div>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">🎯 Key Learning Objectives:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Chronic vs acute cholecystitis code selection (K80.1 vs K80.0)</li>
+                <li>Cholelithiasis vs choledocholithiasis distinction</li>
+                <li>Laparoscopic approach coding (1.OD.89.DA)</li>
+                <li>Intraoperative cholangiogram coding (3.OE.10.WX)</li>
+                <li>When to code operative cholangiogram vs other imaging</li>
+                <li>Understanding "with or without obstruction" in K80 codes</li>
+            </ul>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('clinical')">📄 Clinical Documentation</button>
+            <button class="tab" onclick="showTab('coding')">📊 Coding Abstract</button>
+            <button class="tab" onclick="showTab('rationale')">🧠 Coding Rationale</button>
+            <button class="tab" onclick="showTab('quiz')">💬 Test Your Knowledge</button>
+        </div>
+
+        <!-- Clinical Documentation Tab -->
+        <div id="clinical" class="tab-content active">
+            <h2>📄 Clinical Documentation</h2>
+            
+            <div class="alert alert-warning">
+                <strong>💡 Interactive Challenge:</strong> Read through this operative report, then try coding it yourself before viewing the abstract!
+            </div>
+
+            <div class="clinical-doc">
+                <h3>OPERATIVE REPORT</h3>
+                
+                <p><strong>PATIENT:</strong> 52-year-old female</p>
+                <p><strong>DATE OF PROCEDURE:</strong> April 10, 2026</p>
+                <p><strong>SURGEON:</strong> Dr. Sarah Chen, General Surgery</p>
+                <p><strong>ANESTHESIA:</strong> General anesthesia</p>
+                
+                <h4>PREOPERATIVE DIAGNOSIS:</h4>
+                <p>Chronic cholecystitis with cholelithiasis</p>
+
+                <h4>POSTOPERATIVE DIAGNOSIS:</h4>
+                <p>Chronic cholecystitis with cholelithiasis (confirmed)</p>
+
+                <h4>PROCEDURE PERFORMED:</h4>
+                <p>Laparoscopic cholecystectomy with intraoperative cholangiogram</p>
+
+                <h4>CLINICAL HISTORY:</h4>
+                <p>This 52-year-old female presented to my office 6 weeks ago with a 1-year history of recurrent biliary colic. Patient describes episodic right upper quadrant pain occurring 2-3 times per month, typically after fatty meals, lasting 2-4 hours. Pain is described as constant, dull ache that radiates to the right shoulder blade. Associated with nausea but no vomiting. No fever, jaundice, or changes in stool/urine color.</p>
+
+                <p><strong>INVESTIGATIONS:</strong></p>
+                <ul>
+                    <li>Abdominal ultrasound (March 2026): Multiple gallstones measuring 8mm, 12mm, and 15mm in gallbladder. Thickened gallbladder wall (5mm) consistent with chronic cholecystitis. No pericholecystic fluid. Common bile duct measures 4mm (normal). No intrahepatic ductal dilation.</li>
+                    <li>Liver function tests: Normal (ALT 28 U/L, AST 32 U/L, ALP 78 U/L, Bilirubin 12 μmol/L)</li>
+                </ul>
+
+                <p><strong>PAST MEDICAL HISTORY:</strong> Type 2 diabetes mellitus (on metformin), hypertension (controlled), no previous abdominal surgeries</p>
+
+                <h4>OPERATIVE FINDINGS:</h4>
+                <p>Patient brought to OR, placed supine on table. General anesthesia induced without complication. Abdomen prepped and draped in sterile fashion.</p>
+
+                <p>Pneumoperitoneum established via Veress needle at umbilicus. Four trocars inserted: 10mm umbilical port (camera), 10mm epigastric port, 5mm right subcostal port, 5mm right lateral port.</p>
+
+                <p>Laparoscopy revealed: Gallbladder distended with multiple stones visualized through the wall. Mild adhesions between gallbladder and omentum (easily separated). Thickened, fibrotic gallbladder wall consistent with chronic inflammation. No signs of acute inflammation or perforation. Liver appeared normal. No free fluid in abdomen.</p>
+
+                <p><strong>Dissection:</strong> Calot's triangle carefully dissected. Cystic artery identified and clipped x2, then divided. Cystic duct identified and cleared circumferentially.</p>
+
+                <p><strong>Intraoperative Cholangiogram:</strong> Small incision made in cystic duct. Cholangiogram catheter inserted. Contrast injected under fluoroscopy. FINDINGS: Common bile duct measures 5mm (normal). Good flow of contrast into duodenum. No filling defects. No stones visualized in biliary tree. Intrahepatic ducts normal. Cholangiogram catheter removed.</p>
+
+                <p>Cystic duct clipped x2 proximally, then divided between clips. Gallbladder dissected from liver bed using electrocautery. Hemostasis achieved. Liver bed inspected—no bile leak, no active bleeding.</p>
+
+                <p>Gallbladder placed in specimen bag and removed through umbilical port. Ports removed under direct visualization. Fascial closure of 10mm port sites with 0-Vicryl. Skin closed with 4-0 Monocryl subcuticular suture.</p>
+
+                <h4>SPECIMEN:</h4>
+                <p>Gallbladder with multiple stones sent to pathology</p>
+
+                <h4>ESTIMATED BLOOD LOSS:</h4>
+                <p>Minimal (<50 mL)</p>
+
+                <h4>COMPLICATIONS:</h4>
+                <p>None</p>
+
+                <h4>PATIENT DISPOSITION:</h4>
+                <p>Patient transferred to PACU in stable condition. Tolerated procedure well. Discharged home same day after meeting discharge criteria (tolerating oral fluids, pain controlled with oral analgesia, ambulating independently, voiding spontaneously).</p>
+
+                <h4>PATHOLOGY REPORT (Final):</h4>
+                <p><strong>Gross:</strong> Gallbladder measuring 9 x 4 x 3 cm. Wall is thickened (up to 5mm). Mucosa shows granular, yellow-brown appearance. Multiple gallstones ranging from 0.8 to 1.5 cm in size.</p>
+                <p><strong>Microscopic:</strong> Sections show chronic cholecystitis with marked fibrosis of the gallbladder wall, chronic inflammatory infiltrate, and Rokitansky-Aschoff sinus formation. No acute inflammation. No dysplasia or malignancy identified.</p>
+                <p><strong>Diagnosis:</strong> Chronic cholecystitis with cholelithiasis</p>
+
+                <h4>DISCHARGE DIAGNOSIS:</h4>
+                <p>1. Chronic cholecystitis with cholelithiasis</p>
+                <p>2. Type 2 diabetes mellitus (stable, continued home medications)</p>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('coding')">
+                    Ready? View My Coding →
+                </button>
+            </div>
+        </div>
+
+        <!-- Coding Abstract Tab -->
+        <div id="coding" class="tab-content">
+            <h2>📊 Coding Abstract</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Key Decision:</strong> This is CHRONIC cholecystitis (not acute), confirmed by pathology. Code selection depends on stone location and presence of obstruction!
+            </div>
+
+            <!-- Demographics -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">Demographics & Visit Information</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <div><strong>Age:</strong> 52 years</div>
+                    <div><strong>Sex:</strong> Female</div>
+                    <div><strong>Admission Type:</strong> Elective SDC</div>
+                    <div><strong>Setting:</strong> Surgical Day Care</div>
+                </div>
+            </div>
+
+            <!-- Main Diagnosis -->
+            <div class="code-box code-box-primary">
+                <h3 style="margin-top: 0;">🎯 MOST RESPONSIBLE DIAGNOSIS (Type M)</h3>
+                <div class="code-item">
+                    <div class="code-number">K80.10</div>
+                    <div class="code-description">Calculus of gallbladder with other cholecystitis, without mention of obstruction</div>
+                    <div class="code-rationale"><strong>Type M</strong> - Most responsible diagnosis<br>
+                    This is the reason for the surgical day care admission and cholecystectomy<br>
+                    "Other cholecystitis" = CHRONIC cholecystitis (K80.1x)<br>
+                    No obstruction documented → use ".10" (not ".11")</div>
+                </div>
+                
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📚 Coding Logic from ICD-10-CA:</strong><br>
+                    <strong>K80.1</strong> = Calculus of gallbladder with OTHER cholecystitis (i.e., chronic)<br>
+                    <strong>K80.10</strong> = WITHOUT mention of obstruction<br>
+                    <strong>K80.11</strong> = WITH obstruction<br><br>
+                    This case: Cholangiogram showed NO bile duct obstruction → K80.10
+                </div>
+            </div>
+
+            <!-- Type 2 Diagnosis -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">⚡ Type 2 Diagnosis (Pre-admission Comorbidity)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">E11.9</div>
+                    <div class="code-description">Type 2 diabetes mellitus without complications</div>
+                    <div class="code-rationale"><strong>Type 2</strong> - Pre-admission comorbidity<br>
+                    Patient has known T2DM on metformin<br>
+                    Did not impact surgical management but documented in chart<br>
+                    Meets criteria for Type 2 (chronic condition that may affect patient care)</div>
+                </div>
+            </div>
+
+            <!-- Interventions -->
+            <div class="code-box code-box-secondary">
+                <h3 style="margin-top: 0;">🔧 Intervention Coding (CCI)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">1.OD.89.DA</div>
+                    <div class="code-description">Excision total, gallbladder using laparoscopic (endoscopic) approach</div>
+                    <div class="code-rationale"><strong>Main surgical procedure</strong><br>
+                    1.OD = Gallbladder<br>
+                    89 = Excision, total (cholecystectomy)<br>
+                    DA = Laparoscopic approach<br><br>
+                    <strong>NOTE:</strong> If converted to open, would code as 1.OD.89.LA with Status attribute "C"</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">3.OE.10.WX</div>
+                    <div class="code-description">Radiography, bile ducts using operative (intraoperative) approach</div>
+                    <div class="code-rationale"><strong>Intraoperative cholangiogram</strong><br>
+                    3.OE = Bile ducts<br>
+                    10 = Radiography<br>
+                    WX = Operative (intraoperative) approach<br><br>
+                    This is ALWAYS captured for surgical day care visits when performed</div>
+                </div>
+
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>💡 Why These Codes?</strong><br>
+                    Per course slides: "For surgical day care visits, intraoperative cholangiogram is always captured." The cholangiogram was performed to ensure no retained stones in the bile duct.
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-secondary" onclick="showTab('rationale')">
+                    Understand the Decisions? View Rationale →
+                </button>
+            </div>
+        </div>
+
+        <!-- Rationale Tab -->
+        <div id="rationale" class="tab-content">
+            <h2>🧠 Coding Rationale & Decision Points</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Critical Skill:</strong> Differentiating between acute vs chronic cholecystitis and understanding when obstruction is present!
+            </div>
+
+            <!-- Decision 1 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #1: Why K80.10 (Chronic) NOT K80.00 (Acute)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>The Critical Distinction: Acute vs Chronic</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>From ICD-10-CA Index:</strong></p>
+                        <p style="margin-top: 10px;"><strong>K80.0</strong> = Calculus of gallbladder with ACUTE cholecystitis<br>
+                        <strong>K80.1</strong> = Calculus of gallbladder with OTHER cholecystitis (chronic)</p>
+                    </div>
+
+                    <h4>Evidence This is CHRONIC (not acute):</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Clinical Feature</th>
+                                <th>This Case</th>
+                                <th>Interpretation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>History</td>
+                                <td>1-year history of recurrent biliary colic (2-3x/month)</td>
+                                <td><strong>Chronic</strong> - ongoing, recurrent symptoms</td>
+                            </tr>
+                            <tr>
+                                <td>Ultrasound</td>
+                                <td>Thickened gallbladder wall (5mm), no pericholecystic fluid</td>
+                                <td><strong>Chronic</strong> - fibrosis, no acute inflammation</td>
+                            </tr>
+                            <tr>
+                                <td>Operative findings</td>
+                                <td>Thickened, fibrotic wall. NO acute inflammation or perforation</td>
+                                <td><strong>Chronic</strong> - no signs of acute process</td>
+                            </tr>
+                            <tr>
+                                <td>Pathology</td>
+                                <td>"Chronic cholecystitis with marked fibrosis. NO acute inflammation."</td>
+                                <td><strong>Chronic</strong> - confirmed by pathologist</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>✅ The Rule:</strong> Pathology report is the GOLD STANDARD. If pathology says "chronic cholecystitis," code as chronic (K80.1x), even if clinical presentation seemed acute.
+                    </div>
+
+                    <div class="error-box" style="margin-top: 15px;">
+                        <strong>❌ Common Error:</strong> Coding all cholecystectomies as "acute" (K80.0x)<br>
+                        <strong>✅ Correct:</strong> Check pathology report! Many elective cholecystectomies are for chronic cholecystitis.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 2 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #2: Why K80.10 NOT K80.11? (Obstruction Status)</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Understanding "With or Without Obstruction"</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>K80.10</strong> = Calculus of gallbladder with chronic cholecystitis, WITHOUT mention of obstruction<br>
+                        <strong>K80.11</strong> = Calculus of gallbladder with chronic cholecystitis, WITH obstruction</p>
+                    </div>
+
+                    <h4>What Counts as "Obstruction"?</h4>
+                    <p>"Obstruction" in K80 codes refers to:</p>
+                    <ul>
+                        <li><strong>Cystic duct obstruction</strong> - stone blocking the cystic duct</li>
+                        <li><strong>Common bile duct obstruction</strong> - stone blocking the CBD</li>
+                        <li><strong>Clinical signs:</strong> jaundice, elevated bilirubin, dilated bile duct on imaging</li>
+                    </ul>
+
+                    <h4>Evidence There is NO Obstruction:</h4>
+                    <div class="success-box">
+                        <ul style="margin-bottom: 0;">
+                            <li>✅ Normal liver function tests (bilirubin 12 μmol/L - normal)</li>
+                            <li>✅ Ultrasound: CBD measures 4mm (normal, not dilated)</li>
+                            <li>✅ Intraoperative cholangiogram: "Good flow of contrast into duodenum. No filling defects. No stones visualized in biliary tree."</li>
+                            <li>✅ No jaundice documented</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">When Would You Use K80.11?</h4>
+                    <p>Examples requiring ".11" (WITH obstruction):</p>
+                    <ul>
+                        <li>Stone visualized in common bile duct on imaging/cholangiogram</li>
+                        <li>Dilated CBD (>7mm) on ultrasound</li>
+                        <li>Elevated bilirubin/ALP suggesting biliary obstruction</li>
+                        <li>Documentation states "obstructive jaundice" or "biliary obstruction"</li>
+                    </ul>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>💡 Pro Tip:</strong> If the cholangiogram shows "no stones in bile duct" and "good flow into duodenum," there is NO obstruction → use ".10"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 3 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #3: Why Code 3.OE.10.WX (Cholangiogram)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>When to Code Intraoperative Cholangiogram:</h4>
+                    
+                    <div class="success-box" style="margin-bottom: 15px;">
+                        <strong>From Course Slides:</strong><br>
+                        "For surgical day care visits, ERCP/ERC [and intraoperative cholangiogram] is always captured."
+                    </div>
+
+                    <h4>What is an Intraoperative Cholangiogram?</h4>
+                    <p>It's an X-ray of the bile ducts taken DURING surgery (while gallbladder is being removed) to:</p>
+                    <ul>
+                        <li>Check for stones in the common bile duct</li>
+                        <li>Confirm normal anatomy of bile ducts</li>
+                        <li>Ensure no injury to bile ducts during dissection</li>
+                    </ul>
+
+                    <h4>CCI Code Breakdown:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace;">
+                        <strong>3.OE.10.WX</strong><br>
+                        ├─ <strong>3</strong> = Diagnostic imaging<br>
+                        ├─ <strong>OE</strong> = Bile ducts (anatomical site)<br>
+                        ├─ <strong>10</strong> = Radiography (X-ray)<br>
+                        └─ <strong>WX</strong> = Operative/intraoperative approach
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Other Cholangiogram Codes:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Procedure</th>
+                                <th>CCI Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Intraoperative cholangiogram</td>
+                                <td>3.OE.10.WX</td>
+                            </tr>
+                            <tr>
+                                <td>Endoscopic retrograde cholangiogram (ERC)</td>
+                                <td>3.OE.10.WZ</td>
+                            </tr>
+                            <tr>
+                                <td>Intravenous cholangiogram</td>
+                                <td>3.OE.10.XA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>💡 Remember:</strong> "Operative" approach (WX) means it's done DURING surgery. "Endoscopic" (WZ) means via scope. "Intravenous" (XA) means dye injected into vein.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 4 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #4: Laparoscopic Approach Code (1.OD.89.DA)</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Approach Coding for Cholecystectomy:</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>1.OD.89.DA</strong> = Laparoscopic cholecystectomy<br>
+                        <strong>1.OD.89.LA</strong> = Open cholecystectomy (laparotomy)</p>
+                    </div>
+
+                    <h4>CCI Code Breakdown:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace;">
+                        <strong>1.OD.89.DA</strong><br>
+                        ├─ <strong>1</strong> = Therapeutic intervention<br>
+                        ├─ <strong>OD</strong> = Gallbladder (anatomical site)<br>
+                        ├─ <strong>89</strong> = Excision, total (complete removal)<br>
+                        └─ <strong>DA</strong> = Laparoscopic (endoscopic) approach
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Evidence of Laparoscopic Approach:</h4>
+                    <div class="success-box">
+                        <ul style="margin-bottom: 0;">
+                            <li>✅ "Four trocars inserted" (ports for laparoscopic instruments)</li>
+                            <li>✅ "10mm umbilical port (camera)"</li>
+                            <li>✅ "Laparoscopy revealed..."</li>
+                            <li>✅ "Gallbladder removed through umbilical port"</li>
+                            <li>✅ NO mention of laparotomy incision</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">What If Converted to Open?</h4>
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 6px;">
+                        <p><strong>From Course Slides:</strong></p>
+                        <p style="margin-top: 10px;">"When [laparoscopic procedure] is converted to open approach, the procedure is coded as an 'Open' approach with the Status attribute of 'C' assigned to capture the conversion."</p>
+                        <p style="margin-top: 10px;"><strong>Example:</strong> Started laparoscopic but converted to open → Code: <strong>1.OD.89.LA</strong> with Status = <strong>C</strong> (converted)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('quiz')">
+                    Test Your Knowledge →
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Tab -->
+        <div id="quiz" class="tab-content">
+            <h2>💬 Test Your Understanding</h2>
+
+            <div class="alert alert-warning">
+                <strong>💡 Interview Scenarios:</strong> Practice making coding decisions based on different clinical scenarios!
+            </div>
+
+            <!-- Question 1 -->
+            <div class="quiz-question">
+                <h3>Question 1: Acute vs Chronic</h3>
+                <p><strong>Same patient, same procedure, BUT pathology report says: "Acute cholecystitis with neutrophilic infiltration and abscess formation." What changes?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q1')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q1">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis changes to K80.00</strong> (Calculus of gallbladder with acute cholecystitis, without obstruction)</p>
+                    <p><strong>All interventions stay the same:</strong><br>
+                    - 1.OD.89.DA (laparoscopic cholecystectomy)<br>
+                    - 3.OE.10.WX (intraoperative cholangiogram)</p>
+                    <p><strong>Rationale:</strong> Pathology report is the definitive source for acute vs chronic. If pathology says "acute," code as K80.0x regardless of clinical presentation.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question">
+                <h3>Question 2: With Obstruction</h3>
+                <p><strong>What if the cholangiogram showed: "Stone visualized in distal common bile duct, 8mm. Dilated CBD measuring 9mm. No flow into duodenum." What changes?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q2')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q2">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis changes to K80.11</strong> (Calculus of gallbladder with chronic cholecystitis, WITH obstruction)</p>
+                    <p><strong>Additional code needed: K80.50</strong> (Calculus of bile duct without cholangitis or cholecystitis, without obstruction) - because there's a SEPARATE stone in the bile duct</p>
+                    <p><strong>Possible additional intervention:</strong> If the CBD stone was extracted during the procedure, add <strong>1.OE.57.^^</strong> (Extraction, bile ducts)</p>
+                    <p><strong>Rationale:</strong> Stone in bile duct causing obstruction = ".11" code. The CBD stone is coded separately from the gallbladder stones.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question">
+                <h3>Question 3: Converted to Open</h3>
+                <p><strong>What if the surgeon started laparoscopically but encountered severe adhesions and converted to open laparotomy to complete the cholecystectomy safely?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q3')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q3">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis stays K80.10</strong> (chronic cholecystitis without obstruction)</p>
+                    <p><strong>Cholecystectomy code changes to: 1.OD.89.LA</strong> (open approach) with <strong>Status attribute = "C"</strong> (converted from laparoscopic)</p>
+                    <p><strong>Cholangiogram stays: 3.OE.10.WX</strong> (if performed before conversion)</p>
+                    <p><strong>Rationale:</strong> Per course slides: "When [laparoscopic] is converted to open approach, code as 'Open' with Status 'C' to capture the conversion." The final approach determines the code.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <h3>Question 4: T-Tube Drainage</h3>
+                <p><strong>What if the surgeon placed a T-tube in the common bile duct after removing a stone, and left it in place for drainage? What additional code is needed?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q4')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q4">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Add intervention code: 1.OE.52.DA-TS</strong> (Drainage, bile ducts, laparoscopic approach, using T-tube)</p>
+                    <p><strong>From course slides:</strong> "A T-tube may be inserted into the bile duct when the surgeon suspects stones or other obstruction... Add additional code for bile duct drainage 1.OE.52.^^"</p>
+                    <p><strong>Code Breakdown:</strong><br>
+                    - 1.OE = Bile ducts<br>
+                    - 52 = Drainage<br>
+                    - DA = Laparoscopic approach<br>
+                    - TS = Using T-tube device</p>
+                </div>
+            </div>
+
+            <!-- Completion Box -->
+            <div class="completion-box">
+                <h3 style="margin-top: 0;">🎉 Outstanding Work!</h3>
+                <p>You now master cholecystectomy coding with CIHI standards:</p>
+                <ul>
+                    <li>Acute vs chronic cholecystitis distinction (K80.0 vs K80.1)</li>
+                    <li>With vs without obstruction coding (".10" vs ".11")</li>
+                    <li>Laparoscopic approach coding (1.OD.89.DA)</li>
+                    <li>Intraoperative cholangiogram capture (3.OE.10.WX)</li>
+                    <li>Pathology report as gold standard for diagnosis</li>
+                    <li>Conversion to open approach with Status "C"</li>
+                </ul>
+                <a href="/">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span:last-child');
+            
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                arrow.textContent = '▼';
+            } else {
+                arrow.textContent = '▶';
+            }
+        }
+
+        function showAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            answer.classList.add('show');
+            event.target.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
