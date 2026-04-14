@@ -51,7 +51,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 - Location attribute usage (U for multiple sites)
 - Understanding when findings override screening indication as Type M
 
-**[📱 Click to view Interactive Case →](/cases/colonoscopy-polypectomy.html)**
+**[📱 Click to view Interactive Case →](/cases/cataract-surgery.html)**
 
 ---
 ### Case 3: Laparoscopic Cholecystectomy for Chronic Cholecystitis
