@@ -63,7 +63,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 - Rule-out sepsis coding (Z03.71)
 - CPAP and phototherapy intervention coding
 
-**[📱 View Interactive Case →](/cases/preterm-rds.html)**
+**[📱 Click to view Interactive Case →](/cases/preterm-rds.html)**
 
 ---
 
@@ -78,7 +78,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 - Instrumental delivery impact on Z38 coding
 - Minor vs major birth injury distinction
 
-**[📱 View Interactive Case →](/cases/birth-trauma.html)**
+**[📱 Click to view Interactive Case →](/cases/birth-trauma.html)**
 
 ---
 
@@ -93,7 +93,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 - When seizures are NOT coded separately (part of HIE)
 - Mechanical ventilation intervention coding
 
-**[📱 View Interactive Case →](/cases/birth-asphyxia.html)**
+**[📱 Click to view Interactive Case →](/cases/birth-asphyxia.html)**
 
 ---
 
