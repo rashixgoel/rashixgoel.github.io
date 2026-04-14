@@ -61,7 +61,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 - Pathology report as gold standard for diagnosis
 - Conversion to open approach with Status "C"
 
-[**Click here to view the interactive case →**](/cases/laparoscopic-cholecystectomy.html)
+**[📱 Click to view Interactive Case →](/cases/laparoscopic-cholecystectomy.html)**
 
 
 ### Newborn Cases
