@@ -35,6 +35,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 - When to code diabetes with ophthalmic complications
 
 **[📱 Click to view Interactive Case →](/cases/cataract-surgery.html)**
+
 ---
 
 ### Case 2: Colonoscopy with Multiple Polypectomy
