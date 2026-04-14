@@ -21,7 +21,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 ### Surgical Day Care Cases
 
-### Case 5: Cataract Extraction with IOL Implantation
+### Case 1: Cataract Extraction with IOL Implantation
 
 **Setting:** Surgical Day Care | **Complexity:** ⭐⭐⭐ Intermediate
 
