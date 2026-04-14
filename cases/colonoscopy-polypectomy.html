@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Colonoscopy with Polypectomy | Rashi Goel Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 20px 0 10px 0;
+            font-size: 2em;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .overview {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #fa709a;
+        }
+
+        .overview h2 {
+            margin-bottom: 15px;
+        }
+
+        .patient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            border: none;
+            background: transparent;
+            color: #495057;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #f8f9fa;
+        }
+
+        .tab.active {
+            background: #fa709a;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .clinical-doc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .clinical-doc h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .clinical-doc h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .code-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .code-box-primary {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+
+        .code-box-secondary {
+            background: #e7f3ff;
+            border: 1px solid #17a2b8;
+        }
+
+        .code-box-tertiary {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .code-item {
+            margin-bottom: 15px;
+        }
+
+        .code-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .code-description {
+            margin-top: 5px;
+            color: #495057;
+        }
+
+        .code-rationale {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #218838;
+        }
+
+        .btn-secondary {
+            background: #fa709a;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #f95883;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .collapsible {
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            width: 100%;
+            padding: 20px;
+            background: #f8f9fa;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: #e9ecef;
+        }
+
+        .collapsible-header.active {
+            background: #fa709a;
+            color: white;
+        }
+
+        .collapsible-content {
+            padding: 20px;
+            background: white;
+            display: none;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
+        .error-box {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .success-box {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #28a745;
+        }
+
+        .quiz-question {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-question h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .quiz-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #d4edda;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .quiz-answer.show {
+            display: block;
+        }
+
+        .completion-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .completion-box ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .completion-box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: white;
+            color: #fa709a;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="back-link">← Back to Portfolio</a>
+            <h1>Case Study: Colonoscopy with Multiple Polypectomy</h1>
+            <div class="meta-info">
+                <span>📊 Complexity: ⭐⭐⭐ Intermediate</span>
+                <span>🏥 Setting: Surgical Day Care</span>
+                <span>📅 Duration: Same-day procedure</span>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="overview">
+            <h2>📋 Case Overview</h2>
+            <div class="patient-grid">
+                <div><strong>Patient:</strong> 58-year-old male</div>
+                <div><strong>Procedure:</strong> Colonoscopy with polypectomy</div>
+                <div><strong>Setting:</strong> Surgical Day Care (SDC)</div>
+                <div><strong>Indication:</strong> Screening</div>
+            </div>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">🎯 Key Learning Objectives:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Screening colonoscopy vs diagnostic colonoscopy</li>
+                <li>Benign neoplasm coding (D12.x series)</li>
+                <li>Colonoscopy intervention coding (2.NM.70.BA-BJ)</li>
+                <li>Polypectomy coding with location attribute (1.NM.87.BA)</li>
+                <li>Anatomical site coding for colon polyps</li>
+                <li>When biopsy codes are needed vs polypectomy</li>
+            </ul>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('clinical')">📄 Clinical Documentation</button>
+            <button class="tab" onclick="showTab('coding')">📊 Coding Abstract</button>
+            <button class="tab" onclick="showTab('rationale')">🧠 Coding Rationale</button>
+            <button class="tab" onclick="showTab('quiz')">💬 Test Your Knowledge</button>
+        </div>
+
+        <!-- Clinical Documentation Tab -->
+        <div id="clinical" class="tab-content active">
+            <h2>📄 Clinical Documentation</h2>
+            
+            <div class="alert alert-warning">
+                <strong>💡 Interactive Challenge:</strong> Read this endoscopy report, then try coding it yourself before viewing the abstract!
+            </div>
+
+            <div class="clinical-doc">
+                <h3>COLONOSCOPY REPORT</h3>
+                
+                <p><strong>PATIENT:</strong> 58-year-old male</p>
+                <p><strong>DATE OF PROCEDURE:</strong> April 12, 2026</p>
+                <p><strong>PHYSICIAN:</strong> Dr. Michael Thompson, Gastroenterology</p>
+                <p><strong>ANESTHESIA:</strong> Conscious sedation (Fentanyl + Midazolam)</p>
+                
+                <h4>INDICATION FOR PROCEDURE:</h4>
+                <p>Screening colonoscopy - average risk, age-appropriate screening (patient turns 58 this year, no previous colonoscopy)</p>
+
+                <h4>CLINICAL HISTORY:</h4>
+                <p>Patient is a 58-year-old male with no significant gastrointestinal complaints. No family history of colorectal cancer. No personal history of polyps or IBD. Patient presenting for routine screening colonoscopy as recommended for average-risk individuals starting at age 50.</p>
+
+                <p><strong>PAST MEDICAL HISTORY:</strong> Hypertension (well-controlled on Lisinopril), hyperlipidemia (on Atorvastatin)</p>
+
+                <p><strong>BOWEL PREPARATION:</strong> Excellent (PEG-based prep taken evening before and morning of procedure)</p>
+
+                <h4>PROCEDURE DETAILS:</h4>
+                <p><strong>Scope:</strong> Olympus CF-H190L colonoscope</p>
+                <p><strong>Extent of Exam:</strong> Complete colonoscopy to cecum. Cecum identified by appendiceal orifice and ileocecal valve. Terminal ileum intubated and appeared normal.</p>
+                <p><strong>Withdrawal Time:</strong> 12 minutes</p>
+
+                <h4>FINDINGS:</h4>
+
+                <p><strong>Cecum:</strong> Normal mucosa, appendiceal orifice visualized.</p>
+
+                <p><strong>Ascending Colon:</strong> Normal mucosa. No polyps.</p>
+
+                <p><strong>Hepatic Flexure:</strong> Normal.</p>
+
+                <p><strong>Transverse Colon:</strong> Normal mucosa. No polyps.</p>
+
+                <p><strong>Splenic Flexure:</strong> Normal.</p>
+
+                <p><strong>Descending Colon:</strong> 
+                <ul>
+                    <li><strong>Polyp #1:</strong> 6mm sessile polyp at 35cm from anal verge. Appearance: smooth, pale pink. Removed with cold snare technique. Specimen retrieved and sent to pathology as "Polyp A - Descending Colon."</li>
+                    <li><strong>Polyp #2:</strong> 4mm sessile polyp at 40cm from anal verge. Appearance: similar to Polyp #1. Removed with cold snare. Specimen retrieved and sent as "Polyp B - Descending Colon."</li>
+                </ul>
+                </p>
+
+                <p><strong>Sigmoid Colon:</strong>
+                <ul>
+                    <li><strong>Polyp #3:</strong> 8mm pedunculated polyp at 20cm from anal verge. Appearance: smooth, lobulated surface. Removed with hot snare technique (electrocautery). Hemostasis achieved. Specimen retrieved and sent as "Polyp C - Sigmoid Colon."</li>
+                </ul>
+                </p>
+
+                <p><strong>Rectum:</strong> Normal mucosa. No masses or polyps. Internal hemorrhoids noted (Grade I, non-bleeding).</p>
+
+                <h4>INTERVENTIONS PERFORMED:</h4>
+                <ul>
+                    <li>Polypectomy x 3 (cold snare x 2, hot snare x 1)</li>
+                    <li>All polyp sites inspected post-polypectomy - no immediate bleeding</li>
+                    <li>Polyp retrieval and submission to pathology</li>
+                </ul>
+
+                <h4>COMPLICATIONS:</h4>
+                <p>None. No bleeding, no perforation. Patient tolerated procedure well.</p>
+
+                <h4>ESTIMATED BLOOD LOSS:</h4>
+                <p>Minimal (<5 mL)</p>
+
+                <h4>PATHOLOGY REPORT (Received 3 days later):</h4>
+                
+                <p><strong>Specimen A - Descending Colon, 6mm polyp:</strong></p>
+                <ul>
+                    <li><strong>Diagnosis:</strong> Tubular adenoma with low-grade dysplasia</li>
+                    <li><strong>Margins:</strong> Clear</li>
+                </ul>
+
+                <p><strong>Specimen B - Descending Colon, 4mm polyp:</strong></p>
+                <ul>
+                    <li><strong>Diagnosis:</strong> Tubular adenoma with low-grade dysplasia</li>
+                    <li><strong>Margins:</strong> Clear</li>
+                </ul>
+
+                <p><strong>Specimen C - Sigmoid Colon, 8mm polyp:</strong></p>
+                <ul>
+                    <li><strong>Diagnosis:</strong> Tubulovillous adenoma with low-grade dysplasia</li>
+                    <li><strong>Margins:</strong> Clear</li>
+                </ul>
+
+                <h4>ASSESSMENT:</h4>
+                <ol>
+                    <li>Three benign adenomatous polyps of descending and sigmoid colon - all completely excised</li>
+                    <li>Internal hemorrhoids (Grade I, asymptomatic)</li>
+                </ol>
+
+                <h4>PLAN:</h4>
+                <ul>
+                    <li>Patient advised of pathology findings</li>
+                    <li>Given presence of 3 adenomas (including one tubulovillous), recommend repeat colonoscopy in 3 years per guideline recommendations</li>
+                    <li>Patient discharged home in stable condition</li>
+                    <li>Post-procedure instructions given (diet, activity, warning signs)</li>
+                </ul>
+
+                <h4>DISCHARGE DIAGNOSIS:</h4>
+                <p>Adenomatous polyps of descending colon and sigmoid colon</p>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('coding')">
+                    Ready? View My Coding →
+                </button>
+            </div>
+        </div>
+
+        <!-- Coding Abstract Tab -->
+        <div id="coding" class="tab-content">
+            <h2>📊 Coding Abstract</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Key Decision:</strong> This was a SCREENING colonoscopy that found polyps. The polyps become the main diagnosis after pathology confirmation!
+            </div>
+
+            <!-- Demographics -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">Demographics & Visit Information</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <div><strong>Age:</strong> 58 years</div>
+                    <div><strong>Sex:</strong> Male</div>
+                    <div><strong>Admission Type:</strong> Elective SDC</div>
+                    <div><strong>Setting:</strong> Surgical Day Care</div>
+                </div>
+            </div>
+
+            <!-- Main Diagnosis -->
+            <div class="code-box code-box-primary">
+                <h3 style="margin-top: 0;">🎯 MOST RESPONSIBLE DIAGNOSIS (Type M)</h3>
+                <div class="code-item">
+                    <div class="code-number">D12.4</div>
+                    <div class="code-description">Benign neoplasm of descending colon</div>
+                    <div class="code-rationale"><strong>Type M</strong> - Most responsible diagnosis<br>
+                    Two adenomatous polyps found and removed from descending colon<br>
+                    Confirmed benign by pathology (tubular adenomas)</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number">D12.5</div>
+                    <div class="code-description">Benign neoplasm of sigmoid colon</div>
+                    <div class="code-rationale"><strong>Type M</strong> - Most responsible diagnosis<br>
+                    One adenomatous polyp found and removed from sigmoid colon<br>
+                    Confirmed benign by pathology (tubulovillous adenoma)</div>
+                </div>
+                
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📚 Why TWO Type M diagnoses?</strong><br>
+                    We code EACH anatomical site separately because polyps were found in BOTH descending colon AND sigmoid colon. Each represents a distinct location requiring intervention.
+                </div>
+            </div>
+
+            <!-- Type 3 Diagnosis -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">⚡ Type 3 Diagnosis (Screening Indication)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">Z12.1</div>
+                    <div class="code-description">Encounter for screening for malignant neoplasm of intestinal tract</div>
+                    <div class="code-rationale"><strong>Type 3</strong> - Additional diagnosis<br>
+                    This was a SCREENING colonoscopy (average-risk, age-appropriate)<br>
+                    Important to capture that polyps were found during screening, not diagnostic scope</div>
+                </div>
+
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>💡 Screening vs Diagnostic:</strong><br>
+                    This started as SCREENING (patient had no symptoms). We code both the findings (D12.4, D12.5) AND the screening indication (Z12.1) to capture the full clinical picture.
+                </div>
+            </div>
+
+            <!-- Interventions -->
+            <div class="code-box code-box-secondary">
+                <h3 style="margin-top: 0;">🔧 Intervention Coding (CCI)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">1.NM.87.BA</div>
+                    <div class="code-description">Excision partial, large intestine using colonoscopy</div>
+                    <div class="code-rationale"><strong>Polypectomy (code ONCE for all polyps)</strong><br>
+                    1.NM = Large intestine (colon)<br>
+                    87 = Excision, partial<br>
+                    BA = Using colonoscopy approach<br>
+                    <strong>Location attribute: U</strong> (Unqualified - polyps at multiple sites)<br><br>
+                    Note: Code once even though 3 polyps were removed</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">2.NM.70.BA-BJ</div>
+                    <div class="code-description">Inspection, large intestine using colonoscopy</div>
+                    <div class="code-rationale"><strong>Colonoscopy inspection</strong><br>
+                    2.NM = Large intestine<br>
+                    70 = Inspection<br>
+                    BA = Colonoscopy approach<br>
+                    BJ = Device qualifier (colonoscope)<br><br>
+                    This code captures the complete colonoscopy examination</div>
+                </div>
+
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">2.NQ.71.BA</div>
+                    <div class="code-description">Inspection, small intestine using colonoscopy</div>
+                    <div class="code-rationale"><strong>Terminal ileum inspection</strong><br>
+                    2.NQ = Small intestine<br>
+                    71 = Biopsy<br>
+                    BA = Colonoscopy approach<br><br>
+                    Coded because terminal ileum was intubated and inspected</div>
+                </div>
+
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>💡 From Textbook Example 14:</strong><br>
+                    "A separate code for the endoscopy is required because the endoscopy is extended to a site further than the site where the diagnostic intervention was performed."
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-secondary" onclick="showTab('rationale')">
+                    Understand the Decisions? View Rationale →
+                </button>
+            </div>
+        </div>
+
+        <!-- Rationale Tab -->
+        <div id="rationale" class="tab-content">
+            <h2>🧠 Coding Rationale & Decision Points</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Critical Skill:</strong> Understanding when to code findings vs indication, and how to handle multiple anatomical sites!
+            </div>
+
+            <!-- Decision 1 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #1: Why Code D12.4 AND D12.5 (Both Type M)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Multiple Anatomical Sites = Multiple Diagnosis Codes</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>The Rule:</strong></p>
+                        <p>When benign neoplasms (polyps) are found at DIFFERENT anatomical sites in the colon, each site gets its own diagnosis code.</p>
+                    </div>
+
+                    <h4>In This Case:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Code</th>
+                                <th>Polyps</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Descending colon</strong></td>
+                                <td>D12.4</td>
+                                <td>2 polyps (6mm + 4mm)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sigmoid colon</strong></td>
+                                <td>D12.5</td>
+                                <td>1 polyp (8mm)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>✅ Why BOTH are Type M:</strong><br>
+                        Each anatomical site required therapeutic intervention (polypectomy). Both are equally "responsible" for the visit - neither is more significant than the other.
+                    </div>
+
+                    <h4 style="margin-top: 20px;">What if all 3 polyps were in the SAME location?</h4>
+                    <p>If all 3 polyps were found in descending colon only → Code <strong>D12.4 once</strong> as Type M</p>
+                </div>
+            </div>
+
+            <!-- Decision 2 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #2: Why Z12.1 as Type 3 (Not Type M)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Screening Code is ALWAYS Secondary to Findings</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>The Principle:</strong></p>
+                        <p>When a screening exam FINDS something that requires treatment, the FINDING becomes the main diagnosis, not the screening indication.</p>
+                    </div>
+
+                    <h4>Coding Logic:</h4>
+                    <div class="success-box">
+                        <p><strong>If colonoscopy found NOTHING:</strong><br>
+                        → Z12.1 would be Type M (main reason for visit)</p>
+                        
+                        <p style="margin-top: 10px;"><strong>If colonoscopy found POLYPS (like this case):</strong><br>
+                        → D12.x becomes Type M (the actual findings)<br>
+                        → Z12.1 becomes Type 3 (screening indication)</p>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">From Your Textbook (Page 13.18, Example 14):</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 13px;">
+                        <p>"Patient brought to day surgery for colonoscopy to investigate diarrhea. No pathology found, final diagnosis: functional diarrhea."</p>
+                        <p style="margin-top: 10px;"><strong>Codes:</strong><br>
+                        M - K59.1 (Functional diarrhea)</p>
+                    </div>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>💡 The Pattern:</strong> Whatever is FOUND (or the reason if nothing found) = Type M. The indication for the test = Type 3.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 3 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #3: Why Code 1.NM.87.BA Only ONCE?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Multiple Polypectomies = ONE Intervention Code</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>The CCI Rule:</strong></p>
+                        <p>When multiple polyps are removed during the SAME colonoscopy procedure, code the polypectomy intervention ONCE, regardless of how many polyps were removed.</p>
+                    </div>
+
+                    <h4>Why Use Location Attribute "U" (Unqualified)?</h4>
+                    <p>Location attribute <strong>U</strong> = Unqualified or multiple sites within the same organ system</p>
+
+                    <div class="success-box">
+                        <p><strong>Use "U" when:</strong></p>
+                        <ul style="margin-top: 5px;">
+                            <li>Polyps removed from multiple sites (descending + sigmoid)</li>
+                            <li>Cannot specify a single precise location</li>
+                            <li>Intervention affected multiple areas of the same organ</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">What if Only ONE Polyp in Sigmoid?</h4>
+                    <p>If only 1 polyp removed from sigmoid colon → Could use specific location attribute for sigmoid instead of "U"</p>
+
+                    <h4 style="margin-top: 15px;">CCI Code Breakdown:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace;">
+                        <strong>1.NM.87.BA-U</strong><br>
+                        ├─ <strong>1</strong> = Therapeutic intervention<br>
+                        ├─ <strong>NM</strong> = Large intestine (colon)<br>
+                        ├─ <strong>87</strong> = Excision, partial<br>
+                        ├─ <strong>BA</strong> = Using colonoscopy<br>
+                        └─ <strong>U</strong> = Unqualified location (multiple sites)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 4 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #4: Why Code 2.NM.70.BA-BJ AND 2.NQ.71.BA?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Inspection Codes Capture the Complete Exam</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>From Textbook (Page 13.14-13.15):</strong></p>
+                        <p>"A separate code for the endoscopy is required because the endoscopy is extended to a site further than the site where the diagnostic intervention was performed."</p>
+                    </div>
+
+                    <h4>Why We Need BOTH Codes:</h4>
+
+                    <div style="background: #d4edda; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
+                        <strong>2.NM.70.BA-BJ</strong> (Colonoscopy of large intestine)<br>
+                        Captures the examination of the ENTIRE colon from rectum to cecum
+                    </div>
+
+                    <div style="background: #d4edda; padding: 15px; border-radius: 6px;">
+                        <strong>2.NQ.71.BA</strong> (Inspection of small intestine)<br>
+                        Captures that the scope went BEYOND the colon into the terminal ileum<br>
+                        The exam was "extended to a site further" than just the colon
+                    </div>
+
+                    <h4 style="margin-top: 20px;">What if Terminal Ileum Was NOT Examined?</h4>
+                    <p>If scope only examined colon (did not intubate terminal ileum) → Would NOT code 2.NQ.71.BA</p>
+
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>💡 Key Concept:</strong> The polypectomy code (1.NM.87.BA) shows WHAT was done therapeutically. The inspection codes (2.NM.70, 2.NQ.71) show WHERE and HOW FAR the scope examined.
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('quiz')">
+                    Test Your Knowledge →
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Tab -->
+        <div id="quiz" class="tab-content">
+            <h2>💬 Test Your Understanding</h2>
+
+            <div class="alert alert-warning">
+                <strong>💡 Interview Scenarios:</strong> Practice coding different colonoscopy scenarios!
+            </div>
+
+            <!-- Question 1 -->
+            <div class="quiz-question">
+                <h3>Question 1: No Polyps Found</h3>
+                <p><strong>Same patient, same screening colonoscopy, BUT no polyps were found. Entire colon and terminal ileum examined - all normal. What changes in coding?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q1')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q1">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis changes to:</strong><br>
+                    <strong>Z12.1</strong> (Type M) - Screening for malignant neoplasm of intestinal tract</p>
+                    
+                    <p><strong>Remove:</strong> D12.4, D12.5 (no polyps found!)</p>
+                    
+                    <p><strong>Interventions stay the same:</strong><br>
+                    - 2.NM.70.BA-BJ (colonoscopy)<br>
+                    - 2.NQ.71.BA (terminal ileum inspection)<br>
+                    - <strong>Remove:</strong> 1.NM.87.BA (no polypectomy performed)</p>
+                    
+                    <p><strong>Rationale:</strong> When screening finds nothing abnormal, the screening indication (Z12.1) becomes the main diagnosis.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question">
+                <h3>Question 2: All Polyps in ONE Location</h3>
+                <p><strong>What if all 3 polyps were found in the sigmoid colon only (none in descending colon)? How would diagnosis coding change?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q2')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q2">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis:</strong><br>
+                    <strong>D12.5</strong> (Type M) - Benign neoplasm of sigmoid colon</p>
+                    
+                    <p><strong>Remove:</strong> D12.4 (no polyps in descending colon)</p>
+                    
+                    <p><strong>Keep:</strong> Z12.1 (Type 3) - Screening indication</p>
+                    
+                    <p><strong>Interventions stay the same</strong> - still code polypectomy once</p>
+                    
+                    <p><strong>Rationale:</strong> Only code anatomical sites where polyps were actually found. Multiple polyps in the SAME site = one diagnosis code for that site.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question">
+                <h3>Question 3: Diagnostic (Not Screening) Colonoscopy</h3>
+                <p><strong>What if this patient came in for colonoscopy because of rectal bleeding (not screening), and the same 3 polyps were found and removed?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q3')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q3">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnoses stay the same:</strong><br>
+                    - D12.4 (Type M)<br>
+                    - D12.5 (Type M)</p>
+                    
+                    <p><strong>CHANGE:</strong><br>
+                    <strong>Remove Z12.1</strong> (this is NOT screening anymore)<br>
+                    <strong>Add K62.5</strong> (Type 3) - Hemorrhage of anus and rectum (the symptom that prompted the exam)</p>
+                    
+                    <p><strong>Interventions stay the same</strong></p>
+                    
+                    <p><strong>Rationale:</strong> Z12.1 is ONLY for screening colonoscopies. Diagnostic colonoscopies code the symptom/indication instead (bleeding, diarrhea, abdominal pain, etc.).</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <h3>Question 4: Biopsy Instead of Polypectomy</h3>
+                <p><strong>What if the physician only BIOPSIED one 3mm polyp in the sigmoid (did not remove it), and the rest of the colon was normal?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q4')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q4">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis:</strong><br>
+                    <strong>D12.5</strong> (Type M) - Benign neoplasm of sigmoid colon (once pathology confirms adenoma)</p>
+                    
+                    <p><strong>Keep:</strong> Z12.1 (Type 3) if it was screening</p>
+                    
+                    <p><strong>Interventions CHANGE:</strong><br>
+                    - <strong>Remove:</strong> 1.NM.87.BA (polypectomy)<br>
+                    - <strong>Add:</strong> 2.NM.71.BA (Biopsy, large intestine using colonoscopy)<br>
+                    - <strong>Keep:</strong> 2.NM.70.BA-BJ (colonoscopy inspection)<br>
+                    - <strong>Keep:</strong> 2.NQ.71.BA (if terminal ileum examined)</p>
+                    
+                    <p><strong>Rationale:</strong> Biopsy (taking a small sample) uses a different intervention code than polypectomy (complete removal).</p>
+                </div>
+            </div>
+
+            <!-- Completion Box -->
+            <div class="completion-box">
+                <h3 style="margin-top: 0;">🎉 Excellent Work!</h3>
+                <p>You now understand colonoscopy coding with CIHI standards:</p>
+                <ul>
+                    <li>Multiple anatomical site coding (D12.4, D12.5)</li>
+                    <li>Screening vs diagnostic colonoscopy distinction</li>
+                    <li>Polypectomy intervention coding (1.NM.87.BA)</li>
+                    <li>Complete colonoscopy inspection coding</li>
+                    <li>Location attribute usage (U for multiple sites)</li>
+                    <li>When findings override screening as main diagnosis</li>
+                </ul>
+                <a href="/">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span:last-child');
+            
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                arrow.textContent = '▼';
+            } else {
+                arrow.textContent = '▶';
+            }
+        }
+
+        function showAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            answer.classList.add('show');
+            event.target.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
