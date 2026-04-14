@@ -21,18 +21,20 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 ### Surgical Day Care Cases
 
-**🔹 Case 1: Bilateral Cataract Extraction with IOL Insertion** ⭐⭐⭐⭐
+### Case 5: Cataract Extraction with IOL Implantation
 
-*Complexity: Advanced*
+**Setting:** Surgical Day Care | **Complexity:** ⭐⭐⭐ Intermediate
 
-**Key Learning Points:**
-- Bilateral diagnosis vs bilateral intervention coding
-- Comorbidity significance criteria (diabetes with retinopathy)
-- Staged same-day bilateral procedures
-- Combination intervention codes (extraction + IOL as one code)
+**Key Learning Objectives:**
+- Senile cataract classification (H25.1 nuclear vs H25.0 cortical)
+- Diabetic cataract coding with E11.38
+- Understanding Type M vs Type 3 diagnosis assignment
+- Laterality coding for eye procedures (OD = right eye)
+- Phacoemulsification intervention coding (1.CL.89.LA-KT)
+- Intraocular lens (IOL) implantation
+- When to code diabetes with ophthalmic complications
 
-*Full case coming soon*
-
+**[📱 Click to view Interactive Case →](/cases/cataract-surgery.html)**
 ---
 
 ### Case 2: Colonoscopy with Multiple Polypectomy
@@ -51,7 +53,6 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 **[📱 Click to view Interactive Case →](/cases/colonoscopy-polypectomy.html)**
 
----
 ---
 ### Case 3: Laparoscopic Cholecystectomy for Chronic Cholecystitis
 
