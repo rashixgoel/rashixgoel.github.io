@@ -48,6 +48,21 @@ This site showcases coding practice cases I developed while preparing for my cli
 *Full case coming soon*
 
 ---
+### Case 3: Laparoscopic Cholecystectomy for Chronic Cholecystitis
+
+**Setting:** Surgical Day Care | **Complexity:** ⭐⭐⭐⭐ Advanced
+
+**Key Learning Objectives:**
+- Chronic vs acute cholecystitis code selection (K80.1 vs K80.0)
+- Understanding "with or without obstruction" coding (.10 vs .11)
+- Cholelithiasis vs choledocholithiasis distinction
+- Laparoscopic approach coding (1.OD.89.DA)
+- Intraoperative cholangiogram capture (3.OE.10.WX)
+- Pathology report as gold standard for diagnosis
+- Conversion to open approach with Status "C"
+
+[**Click here to view the interactive case →**](/cases/laparoscopic-cholecystectomy.html)
+
 
 ### Newborn Cases
 
