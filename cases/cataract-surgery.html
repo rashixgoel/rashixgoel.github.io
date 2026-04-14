@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Cataract Extraction with IOL Implantation | Rashi Goel Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 20px 0 10px 0;
+            font-size: 2em;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .overview {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .overview h2 {
+            margin-bottom: 15px;
+        }
+
+        .patient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            border: none;
+            background: transparent;
+            color: #495057;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #f8f9fa;
+        }
+
+        .tab.active {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .clinical-doc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .clinical-doc h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .clinical-doc h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .code-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .code-box-primary {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+
+        .code-box-secondary {
+            background: #e7f3ff;
+            border: 1px solid #17a2b8;
+        }
+
+        .code-box-tertiary {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .code-item {
+            margin-bottom: 15px;
+        }
+
+        .code-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .code-description {
+            margin-top: 5px;
+            color: #495057;
+        }
+
+        .code-rationale {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #218838;
+        }
+
+        .btn-secondary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5568d3;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .collapsible {
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            width: 100%;
+            padding: 20px;
+            background: #f8f9fa;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: #e9ecef;
+        }
+
+        .collapsible-header.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .collapsible-content {
+            padding: 20px;
+            background: white;
+            display: none;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
+        .error-box {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .success-box {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid #28a745;
+        }
+
+        .quiz-question {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-question h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .quiz-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #d4edda;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .quiz-answer.show {
+            display: block;
+        }
+
+        .completion-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .completion-box ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .completion-box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="back-link">← Back to Portfolio</a>
+            <h1>Case Study: Cataract Extraction with IOL Implantation</h1>
+            <div class="meta-info">
+                <span>📊 Complexity: ⭐⭐⭐ Intermediate</span>
+                <span>🏥 Setting: Surgical Day Care</span>
+                <span>📅 Duration: Same-day procedure</span>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="overview">
+            <h2>📋 Case Overview</h2>
+            <div class="patient-grid">
+                <div><strong>Patient:</strong> 72-year-old female</div>
+                <div><strong>Procedure:</strong> Phacoemulsification cataract extraction</div>
+                <div><strong>Eye:</strong> Right eye (OD)</div>
+                <div><strong>Setting:</strong> Surgical Day Care</div>
+            </div>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">🎯 Key Learning Objectives:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Senile cataract classification (H25.1 nuclear cataract)</li>
+                <li>Diabetic cataract coding with E11.38</li>
+                <li>Laterality coding for eye procedures (OD = right eye)</li>
+                <li>Cataract extraction intervention coding (1.CL.89.LA-KT)</li>
+                <li>Phacoemulsification as modern surgical technique</li>
+                <li>Understanding when diabetes is coded as Type 3</li>
+            </ul>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('clinical')">📄 Clinical Documentation</button>
+            <button class="tab" onclick="showTab('coding')">📊 Coding Abstract</button>
+            <button class="tab" onclick="showTab('rationale')">🧠 Coding Rationale</button>
+            <button class="tab" onclick="showTab('quiz')">💬 Test Your Knowledge</button>
+        </div>
+
+        <!-- Clinical Documentation Tab -->
+        <div id="clinical" class="tab-content active">
+            <h2>📄 Clinical Documentation</h2>
+            
+            <div class="alert alert-warning">
+                <strong>💡 Interactive Challenge:</strong> Read through this operative report, then try coding it yourself before viewing the abstract!
+            </div>
+
+            <div class="clinical-doc">
+                <h3>OPERATIVE REPORT - OPHTHALMOLOGY</h3>
+                
+                <p><strong>PATIENT:</strong> 72-year-old female</p>
+                <p><strong>DATE OF PROCEDURE:</strong> April 13, 2026</p>
+                <p><strong>SURGEON:</strong> Dr. Jennifer Martinez, Ophthalmology</p>
+                <p><strong>ANESTHESIA:</strong> Local anesthesia (topical + peribulbar block)</p>
+                
+                <h4>PREOPERATIVE DIAGNOSIS:</h4>
+                <p>Senile nuclear cataract, right eye</p>
+
+                <h4>POSTOPERATIVE DIAGNOSIS:</h4>
+                <p>Senile nuclear cataract, right eye</p>
+
+                <h4>PROCEDURE PERFORMED:</h4>
+                <p>Phacoemulsification with intraocular lens implantation, right eye</p>
+
+                <h4>CLINICAL HISTORY:</h4>
+                <p>This 72-year-old female with history of type 2 diabetes mellitus (diagnosed 8 years ago, well-controlled on metformin) presents with progressive visual decline in the right eye over the past 18 months. Patient reports difficulty with reading, night driving (significant glare from oncoming headlights), and recognizing faces at a distance. She describes her vision as "cloudy" and "like looking through a foggy window."</p>
+
+                <p>Patient notes that her diabetes has been well-controlled (last HbA1c 6.8% three months ago). She is aware that diabetes can accelerate cataract formation. Her ophthalmologist has been monitoring her cataracts annually for the past 3 years, and the right eye cataract has now progressed to the point where it significantly impacts daily activities.</p>
+
+                <p><strong>VISUAL ACUITY (Pre-operative):</strong></p>
+                <ul>
+                    <li>Right eye (OD): 20/80 uncorrected, 20/60 best corrected</li>
+                    <li>Left eye (OS): 20/30 uncorrected, 20/25 best corrected</li>
+                </ul>
+
+                <p><strong>SLIT LAMP EXAMINATION:</strong></p>
+                <ul>
+                    <li><strong>Right eye:</strong> Grade 3+ nuclear sclerosis with yellow-brown discoloration of lens nucleus. No cortical opacities. Clear cornea. Normal anterior chamber depth. No diabetic changes visible on anterior segment.</li>
+                    <li><strong>Left eye:</strong> Grade 1+ nuclear sclerosis (mild early cataract, not yet visually significant)</li>
+                </ul>
+
+                <p><strong>DILATED FUNDUS EXAMINATION (Pre-operative):</strong></p>
+                <ul>
+                    <li><strong>Right eye:</strong> Difficult to visualize retina clearly due to dense nuclear cataract. No obvious diabetic retinopathy visible through cataract.</li>
+                    <li><strong>Left eye:</strong> Healthy retina, no diabetic retinopathy, no macular edema. Optic nerve healthy. Cup-to-disc ratio 0.3.</li>
+                </ul>
+
+                <p><strong>PAST MEDICAL HISTORY:</strong></p>
+                <ul>
+                    <li>Type 2 diabetes mellitus (diagnosed 2018, on metformin 1000mg BID, HbA1c 6.8%)</li>
+                    <li>Hypertension (controlled on Amlodipine 5mg daily)</li>
+                    <li>Osteoarthritis (knees, managed with acetaminophen as needed)</li>
+                </ul>
+
+                <p><strong>PAST OCULAR HISTORY:</strong> No previous eye surgeries, no glaucoma, no diabetic retinopathy documented</p>
+
+                <h4>PROCEDURE DETAILS:</h4>
+
+                <p>Patient brought to the operating room and positioned supine. Monitoring established (BP, pulse ox, ECG). Glucose checked pre-operatively: 7.2 mmol/L (acceptable for procedure). Right eye prepped and draped in sterile fashion using standard ophthalmic technique.</p>
+
+                <p><strong>Anesthesia:</strong> Topical anesthetic drops (proparacaine) applied. Peribulbar block performed using 3 mL of 2% lidocaine with 1:100,000 epinephrine for akinesia and analgesia. Excellent anesthesia achieved.</p>
+
+                <p><strong>Surgical Technique:</strong></p>
+
+                <p><strong>1. Corneal Incisions:</strong> 2.75mm clear corneal incision created at 11 o'clock position using keratome. Two paracentesis incisions created at 2 o'clock and 9 o'clock positions for instrument access.</p>
+
+                <p><strong>2. Anterior Capsulotomy:</strong> Viscoelastic (sodium hyaluronate) injected into anterior chamber to maintain space and protect corneal endothelium. Continuous curvilinear capsulorhexis (CCC) performed with 5.5mm diameter - smooth, intact, well-centered.</p>
+
+                <p><strong>3. Hydrodissection:</strong> Balanced salt solution injected beneath anterior capsule to separate lens cortex from capsule. Good lens rotation achieved confirming complete hydrodissection.</p>
+
+                <p><strong>4. Phacoemulsification:</strong></p>
+                <ul>
+                    <li>Lens nucleus divided using "divide and conquer" technique</li>
+                    <li>Four quadrants created and sequentially emulsified using phaco handpiece</li>
+                    <li>Dense nuclear sclerosis required moderate phaco power (average 30%)</li>
+                    <li>All nuclear material successfully emulsified and aspirated</li>
+                    <li>Cortical material removed using irrigation/aspiration handpiece</li>
+                    <li>Capsular bag thoroughly cleaned - no residual cortex or lens material</li>
+                </ul>
+
+                <p><strong>5. IOL Implantation:</strong></p>
+                <ul>
+                    <li>Additional viscoelastic injected to inflate capsular bag</li>
+                    <li>Foldable acrylic intraocular lens (IOL) power +21.5 diopters inserted through main incision using injector system</li>
+                    <li>IOL unfolded smoothly within capsular bag</li>
+                    <li>IOL haptics positioned securely in capsular bag - well-centered, stable</li>
+                    <li>IOL type: Single-piece acrylic, posterior chamber IOL</li>
+                </ul>
+
+                <p><strong>6. Wound Closure:</strong></p>
+                <ul>
+                    <li>Viscoelastic carefully removed from anterior chamber and capsular bag using irrigation/aspiration</li>
+                    <li>All incisions checked for leakage - all watertight, no sutures required (self-sealing incisions)</li>
+                    <li>Anterior chamber well-formed, normal depth</li>
+                    <li>IOL position verified - well-centered, stable</li>
+                </ul>
+
+                <p><strong>7. Medications:</strong></p>
+                <ul>
+                    <li>Intracameral antibiotic (cefuroxime 1mg) injected into anterior chamber for infection prophylaxis</li>
+                    <li>Topical antibiotic-steroid combination drop (prednisolone-neomycin) instilled</li>
+                    <li>Eye shield applied</li>
+                </ul>
+
+                <h4>ESTIMATED BLOOD LOSS:</h4>
+                <p>None</p>
+
+                <h4>COMPLICATIONS:</h4>
+                <p>None. No posterior capsule rupture, no vitreous loss, no zonular dialysis.</p>
+
+                <h4>LENS DETAILS:</h4>
+                <ul>
+                    <li><strong>IOL Model:</strong> Alcon AcrySof IQ SN60WF</li>
+                    <li><strong>IOL Power:</strong> +21.5 D</li>
+                    <li><strong>Target Refraction:</strong> -0.25 D (mild myopia for reading preference)</li>
+                </ul>
+
+                <h4>POST-OPERATIVE INSTRUCTIONS:</h4>
+                <ul>
+                    <li>Prednisolone acetate 1% drops - 1 drop QID x 4 weeks, then taper</li>
+                    <li>Moxifloxacin 0.5% drops - 1 drop QID x 1 week</li>
+                    <li>Continue metformin as prescribed for diabetes management</li>
+                    <li>Avoid eye rubbing, heavy lifting (>10 lbs), straining</li>
+                    <li>Wear eye shield at night for 1 week</li>
+                    <li>No swimming for 2 weeks</li>
+                    <li>Monitor blood glucose as usual (diabetes well-controlled)</li>
+                </ul>
+
+                <h4>PATIENT DISPOSITION:</h4>
+                <p>Patient transferred to recovery area in stable condition. Visual acuity tested 1 hour post-op: counting fingers at 3 feet (normal immediately post-op due to dilated pupil and mild corneal edema). Patient tolerated procedure well. Discharged home same day with responsible adult. Follow-up appointment scheduled for post-op day 1.</p>
+
+                <h4>POST-OP DAY 1 FOLLOW-UP NOTE:</h4>
+                <p><strong>Visual Acuity:</strong> 20/30 uncorrected (significant improvement from pre-op 20/80)</p>
+                <p><strong>Exam:</strong> Corneal incision healing well, minimal edema. Anterior chamber clear, no cells or flare. IOL well-positioned and centered. No complications. Fundus exam now possible through clear IOL - retina healthy, no diabetic retinopathy changes observed.</p>
+                <p><strong>Plan:</strong> Continue medications as prescribed. Follow-up in 1 week, then 1 month for final refraction. Patient's diabetes is well-controlled and should not impact healing.</p>
+
+                <h4>FINAL DIAGNOSES:</h4>
+                <p>1. Senile nuclear cataract, right eye - successfully extracted</p>
+                <p>2. Type 2 diabetes mellitus (stable, well-controlled)</p>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('coding')">
+                    Ready? View My Coding →
+                </button>
+            </div>
+        </div>
+
+        <!-- Coding Abstract Tab -->
+        <div id="coding" class="tab-content">
+            <h2>📊 Coding Abstract</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Key Decision:</strong> This is a senile cataract in a diabetic patient. We code BOTH the cataract (H25.1) AND the diabetes with ophthalmic complication (E11.38)!
+            </div>
+
+            <!-- Demographics -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">Demographics & Visit Information</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <div><strong>Age:</strong> 72 years</div>
+                    <div><strong>Sex:</strong> Female</div>
+                    <div><strong>Admission Type:</strong> Elective SDC</div>
+                    <div><strong>Setting:</strong> Surgical Day Care</div>
+                    <div><strong>Laterality:</strong> Right eye (OD)</div>
+                </div>
+            </div>
+
+            <!-- Main Diagnosis -->
+            <div class="code-box code-box-primary">
+                <h3 style="margin-top: 0;">🎯 MOST RESPONSIBLE DIAGNOSIS (Type M)</h3>
+                <div class="code-item">
+                    <div class="code-number">H25.1</div>
+                    <div class="code-description">Senile nuclear cataract</div>
+                    <div class="code-rationale"><strong>Type M</strong> - Most responsible diagnosis<br>
+                    This is the reason for the surgical day care admission<br>
+                    "Senile nuclear" = age-related cataract affecting the lens nucleus<br>
+                    Confirmed by slit lamp exam showing "Grade 3+ nuclear sclerosis with yellow-brown discoloration"</div>
+                </div>
+                
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>📚 From Textbook (Page 16.1):</strong><br>
+                    "Nuclear sclerosis cataracts result from the normal condensing process in the lens nucleus developing after middle age; these are classified in ICD-10-CA to <strong>H25.1 Senile nuclear cataract</strong>."<br><br>
+                    <strong>H25.1</strong> = Senile nuclear cataract (age-related, most common)<br>
+                    <strong>H25.0</strong> = Senile incipient cataract (cortical type, early stage)
+                </div>
+            </div>
+
+            <!-- Type 3 Diagnosis -->
+            <div class="code-box code-box-tertiary">
+                <h3 style="margin-top: 0;">⚡ Type 3 Diagnosis (Additional Diagnosis)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number">E11.38</div>
+                    <div class="code-description">Type 2 diabetes mellitus with other specified ophthalmic complication not elsewhere classified</div>
+                    <div class="code-rationale"><strong>Type 3</strong> - Additional diagnosis<br>
+                    Patient has type 2 diabetes which is associated with the cataract<br>
+                    Senile cataracts occur earlier and more frequently in diabetic patients<br>
+                    Diabetes is stable and well-controlled (not the main reason for admission)</div>
+                </div>
+
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>💡 From Textbook (Page 16.2 Example):</strong><br>
+                    "A patient with type 2 diabetes and senile cataract presents for cataract extraction."<br><br>
+                    <strong>Codes:</strong><br>
+                    H25.9 - MP (Most responsible, Primary)<br>
+                    E11.38 - OP (Other problem)<br><br>
+                    The textbook states: "When a senile cataract occurs in type 2 diabetes, the appropriate code for the senile cataract is assigned with <strong>E11.38</strong>."
+                </div>
+            </div>
+
+            <!-- Interventions -->
+            <div class="code-box code-box-secondary">
+                <h3 style="margin-top: 0;">🔧 Intervention Coding (CCI)</h3>
+                
+                <div class="code-item">
+                    <div class="code-number" style="font-size: 18px;">1.CL.89.LA-KT</div>
+                    <div class="code-description">Excision total, lens using open (phacoemulsification) approach with intraocular lens insertion</div>
+                    <div class="code-rationale"><strong>Cataract extraction with IOL implantation</strong><br>
+                    1.CL = Lens (anatomical site)<br>
+                    89 = Excision, total (complete lens removal)<br>
+                    LA = Open approach (phacoemulsification)<br>
+                    KT = With intraocular lens insertion<br><br>
+                    <strong>From Textbook (Page 16.2):</strong> "Cataract extractions are usually performed on an ambulatory care or day surgery basis... classified to <strong>1.CL.89.^^ Excision total, lens</strong> with qualifiers to identify prosthetic lens insertion."</div>
+                </div>
+
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>💡 Phacoemulsification Explained:</strong><br>
+                    Phacoemulsification is the most common method of cataract extraction. It uses ultrasonic vibrations to break up the lens into tiny fragments, which are then aspirated (removed). The textbook mentions this is "the most common method of cataract extraction" and involves an IOL being implanted afterward.
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-secondary" onclick="showTab('rationale')">
+                    Understand the Decisions? View Rationale →
+                </button>
+            </div>
+        </div>
+
+        <!-- Rationale Tab -->
+        <div id="rationale" class="tab-content">
+            <h2>🧠 Coding Rationale & Decision Points</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Critical Skill:</strong> Understanding when to code diabetes with cataracts and determining diagnosis types!
+            </div>
+
+            <!-- Decision 1 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #1: Why H25.1 (Senile Nuclear Cataract)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Types of Senile (Age-Related) Cataracts</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>From Textbook (Page 16.1):</strong></p>
+                        <p style="margin-top: 10px;">
+                        <strong>Nuclear sclerosis cataracts</strong> result from the normal condensing process in the lens nucleus developing after middle age → <strong>H25.1</strong><br><br>
+                        <strong>Cortical cataracts</strong> are opacities in the lens cortex with a clear central lens → <strong>H25.0</strong> Senile incipient cataract
+                        </p>
+                    </div>
+
+                    <h4>Evidence This is NUCLEAR (not cortical):</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Clinical Finding</th>
+                                <th>This Case</th>
+                                <th>Interpretation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Slit lamp exam</td>
+                                <td>"Grade 3+ nuclear sclerosis"</td>
+                                <td><strong>Nuclear</strong> cataract</td>
+                            </tr>
+                            <tr>
+                                <td>Lens appearance</td>
+                                <td>"Yellow-brown discoloration of lens nucleus"</td>
+                                <td>Classic sign of nuclear sclerosis</td>
+                            </tr>
+                            <tr>
+                                <td>Cortical opacities?</td>
+                                <td>"No cortical opacities"</td>
+                                <td>NOT cortical cataract</td>
+                            </tr>
+                            <tr>
+                                <td>Age</td>
+                                <td>72 years old</td>
+                                <td>Age-appropriate for senile cataract</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>✅ Coding Decision:</strong> Nuclear sclerosis + yellow-brown discoloration + no cortical changes = <strong>H25.1 Senile nuclear cataract</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 2 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #2: Why Add E11.38 (Diabetic Cataract)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Coding Diabetes with Cataracts</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>From Textbook (Page 16.2):</strong></p>
+                        <p style="margin-top: 10px;">"Senile cataracts occur earlier and more frequently in patients with type 2 diabetes. When a senile cataract occurs in type 2 diabetes, the appropriate code for the senile cataract is assigned with <strong>E11.38 Type 2 diabetes mellitus with other specified ophthalmic complication not elsewhere classified</strong>."</p>
+                    </div>
+
+                    <h4>Why Code BOTH H25.1 AND E11.38?</h4>
+                    
+                    <div class="success-box">
+                        <p><strong>H25.1</strong> = Describes the SPECIFIC TYPE of cataract (nuclear)</p>
+                        <p style="margin-top: 10px;"><strong>E11.38</strong> = Captures that diabetes is ASSOCIATED with the ophthalmic condition</p>
+                        <p style="margin-top: 10px;">Both codes together give the complete clinical picture: "senile nuclear cataract in a diabetic patient"</p>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Why is E11.38 Type 3 (not Type M)?</h4>
+                    
+                    <p><strong>Type M</strong> = The condition that is the MAIN REASON for admission</p>
+                    <p><strong>Type 3</strong> = Additional diagnosis that provides context but isn't the primary reason</p>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>In this case:</strong><br>
+                        - Main reason for admission = Cataract extraction (H25.1 = Type M)<br>
+                        - Diabetes is relevant context (associated condition) but NOT the primary reason (E11.38 = Type 3)<br>
+                        - Diabetes is stable and well-controlled, not requiring active management during this visit
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 3 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #3: Why 1.CL.89.LA-KT (Intervention Code)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Breaking Down the CCI Code</h4>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+                        <p><strong>From Textbook (Page 16.2):</strong></p>
+                        <p style="margin-top: 10px;">"Cataract extractions are usually performed on an ambulatory care or day surgery basis under local anesthesia. In CCI the procedure is classified to <strong>1.CL.89.^^ Excision total, lens</strong> with qualifiers to identify the extraction technique and type of prosthetic lens insertion."</p>
+                    </div>
+
+                    <h4>CCI Code Structure:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace;">
+                        <strong>1.CL.89.LA-KT</strong><br>
+                        ├─ <strong>1</strong> = Therapeutic intervention (Section 1)<br>
+                        ├─ <strong>CL</strong> = Lens (Anatomical site)<br>
+                        ├─ <strong>89</strong> = Excision, total (Intervention type)<br>
+                        ├─ <strong>LA</strong> = Open approach (Approach attribute)<br>
+                        └─ <strong>KT</strong> = With intraocular lens insertion (Device/qualifier)
+                    </div>
+
+                    <h4 style="margin-top: 20px;">Why "LA" (Open Approach) for Phacoemulsification?</h4>
+                    
+                    <p>Even though phacoemulsification uses a small incision, it's classified as an "open" approach because the surgeon directly accesses the lens through a corneal incision (not via endoscopy or other minimally invasive method).</p>
+
+                    <h4 style="margin-top: 15px;">Why "KT" (Intraocular Lens Insertion)?</h4>
+                    
+                    <p>The textbook mentions "qualifiers to identify prosthetic lens insertion." The KT qualifier captures that an IOL (+21.5 D acrylic lens) was implanted to replace the natural lens that was removed.</p>
+
+                    <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>💡 Complete Picture:</strong> The intervention code tells us WHAT was done (total lens excision), HOW it was done (open/phaco approach), and WHAT was added (IOL implantation).
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 4 -->
+            <div class="collapsible">
+                <button class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🔥 Decision #4: What About Laterality (Right Eye)?</span>
+                    <span>▶</span>
+                </button>
+                <div class="collapsible-content">
+                    <h4>Capturing Which Eye Was Operated On</h4>
+                    
+                    <p>Eye procedures require documentation of laterality:</p>
+                    <ul style="margin-top: 10px;">
+                        <li><strong>OD</strong> = Oculus Dexter = Right eye</li>
+                        <li><strong>OS</strong> = Oculus Sinister = Left eye</li>
+                        <li><strong>OU</strong> = Oculus Uterque = Both eyes</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">How is Laterality Captured in Coding?</h4>
+                    
+                    <p>In ICD-10-CA and CCI, laterality is typically captured through:</p>
+                    <ol>
+                        <li><strong>Diagnosis coding:</strong> Some eye condition codes have built-in laterality (e.g., H25.11 for right eye, H25.12 for left eye)</li>
+                        <li><strong>Intervention coding:</strong> CCI uses location attributes to specify right vs left</li>
+                        <li><strong>Documentation:</strong> Clearly stating "right eye" or "OD" in the procedure description</li>
+                    </ol>
+
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>✅ In This Case:</strong> The laterality (right eye) is documented in the operative report and would be captured via the CCI intervention code's location attribute. Always verify which eye was operated on!
+                    </div>
+
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <strong>⚠️ Common Error:</strong> Coding the wrong eye! Always check the operative report carefully - confusing right and left can have serious implications for patient safety and billing.
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="showTab('quiz')">
+                    Test Your Knowledge →
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Tab -->
+        <div id="quiz" class="tab-content">
+            <h2>💬 Test Your Understanding</h2>
+
+            <div class="alert alert-warning">
+                <strong>💡 Interview Scenarios:</strong> Practice coding different cataract scenarios!
+            </div>
+
+            <!-- Question 1 -->
+            <div class="quiz-question">
+                <h3>Question 1: Cortical Cataract Instead</h3>
+                <p><strong>Same patient, same diabetes, BUT slit lamp shows "cortical opacities in a spoke-like pattern" with "clear central lens nucleus." What changes?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q1')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q1">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis changes to:</strong><br>
+                    <strong>H25.0</strong> (Type M) - Senile incipient cataract (cortical type)</p>
+                    
+                    <p><strong>Keep:</strong> E11.38 (Type 3) - Diabetes still present</p>
+                    
+                    <p><strong>Intervention stays the same:</strong> 1.CL.89.LA-KT</p>
+                    
+                    <p><strong>Rationale:</strong> Cortical opacities = cortical cataract = H25.0. Nuclear sclerosis = nuclear cataract = H25.1. The cataract TYPE determines which H25.x code to use.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question">
+                <h3>Question 2: No Diabetes</h3>
+                <p><strong>Same nuclear cataract, same procedure, BUT patient does NOT have diabetes. What changes?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q2')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q2">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Main Diagnosis stays:</strong><br>
+                    <strong>H25.1</strong> (Type M) - Senile nuclear cataract</p>
+                    
+                    <p><strong>REMOVE:</strong> E11.38 (no diabetes to code!)</p>
+                    
+                    <p><strong>Intervention stays the same:</strong> 1.CL.89.LA-KT</p>
+                    
+                    <p><strong>Rationale:</strong> E11.38 is ONLY coded when the patient has diabetes. Without diabetes, we only code the cataract itself.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question">
+                <h3>Question 3: Both Eyes Same Day</h3>
+                <p><strong>What if bilateral cataracts (both eyes) were extracted during the same surgical session?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q3')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q3">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Diagnoses:</strong><br>
+                    - H25.1 (Type M) - still code once for senile nuclear cataract<br>
+                    - E11.38 (Type 3) - if diabetes present</p>
+                    
+                    <p><strong>Interventions:</strong><br>
+                    - 1.CL.89.LA-KT with laterality attribute for RIGHT eye<br>
+                    - 1.CL.89.LA-KT with laterality attribute for LEFT eye<br>
+                    (Code the intervention TWICE - once for each eye)</p>
+                    
+                    <p><strong>Rationale:</strong> When both eyes undergo the same procedure during one session, code the intervention twice with different laterality attributes.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <h3>Question 4: Uncontrolled Diabetes with Retinopathy</h3>
+                <p><strong>What if the patient had uncontrolled diabetes (HbA1c 10%) AND diabetic retinopathy in addition to the cataract?</strong></p>
+                
+                <button class="btn btn-secondary" onclick="showAnswer('q4')">
+                    Show Answer
+                </button>
+
+                <div class="quiz-answer" id="q4">
+                    <strong>✅ Answer:</strong>
+                    <p><strong>Diagnoses would be MORE COMPLEX:</strong><br>
+                    - H25.1 (Type M) - Senile nuclear cataract (still main reason for surgery)<br>
+                    - E11.3x (Type 3) - Diabetes with retinopathy (specific code depends on retinopathy type)<br>
+                    - H36.0* (Type 3) - Diabetic retinopathy<br>
+                    - Possible E11.65 (Type 3) - if diabetes is poorly controlled</p>
+                    
+                    <p><strong>Intervention stays the same:</strong> 1.CL.89.LA-KT</p>
+                    
+                    <p><strong>Rationale:</strong> When diabetes has complications (retinopathy), use more specific E11.3x codes. Diabetic retinopathy gets its own code (H36.0*) and uses dagger/asterisk combination with diabetes code.</p>
+                    
+                    <p><strong>Note:</strong> This is MORE complex coding - you'd need to reference the full ICD-10-CA manual for exact codes!</p>
+                </div>
+            </div>
+
+            <!-- Completion Box -->
+            <div class="completion-box">
+                <h3 style="margin-top: 0;">🎉 Outstanding Work!</h3>
+                <p>You now understand cataract surgery coding with CIHI standards:</p>
+                <ul>
+                    <li>Senile cataract types (H25.1 nuclear vs H25.0 cortical)</li>
+                    <li>Coding diabetes with cataracts (E11.38)</li>
+                    <li>Understanding Type M vs Type 3 diagnosis assignment</li>
+                    <li>Phacoemulsification intervention coding (1.CL.89.LA-KT)</li>
+                    <li>IOL implantation as part of cataract surgery</li>
+                    <li>Importance of laterality documentation</li>
+                </ul>
+                <a href="/">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span:last-child');
+            
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                arrow.textContent = '▼';
+            } else {
+                arrow.textContent = '▶';
+            }
+        }
+
+        function showAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            answer.classList.add('show');
+            event.target.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
