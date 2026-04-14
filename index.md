@@ -35,18 +35,23 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 ---
 
-**🔹 Case 2: Colonoscopy with Multiple Polypectomy** ⭐⭐⭐⭐
+### Case 2: Colonoscopy with Multiple Polypectomy
 
-*Complexity: Advanced*
+**Setting:** Surgical Day Care | **Complexity:** ⭐⭐⭐ Intermediate
 
-**Key Learning Points:**
-- Multiple neoplasm coding across different colon sites
-- Single intervention code for multiple excisions during one endoscopy
-- Benign vs malignant neoplasm coding
-- Pathology interpretation and coding decisions
+**Key Learning Objectives:**
+- Screening colonoscopy vs diagnostic colonoscopy distinction
+- Multiple anatomical site coding (D12.4, D12.5)
+- Benign neoplasm diagnosis coding for colon polyps
+- Polypectomy intervention coding (1.NM.87.BA)
+- Complete colonoscopy inspection coding (2.NM.70.BA-BJ)
+- Terminal ileum examination coding (2.NQ.71.BA)
+- Location attribute usage (U for multiple sites)
+- Understanding when findings override screening indication as Type M
 
-*Full case coming soon*
+**[📱 Click to view Interactive Case →](/cases/colonoscopy-polypectomy.html)**
 
+---
 ---
 ### Case 3: Laparoscopic Cholecystectomy for Chronic Cholecystitis
 
