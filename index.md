@@ -1,13 +1,13 @@
 # ICD-10-CA/CCI Coding Portfolio
 ## Rashi Goel
 
-Welcome! I'm a Health Information Management student passionate about accurate clinical coding and healthcare data quality.
+Welcome! I am Health Information Management (HIM) student passionate about accurate clinical coding and healthcare data quality.
 
 ---
 
 ## 🎯 About This Portfolio
 
-This site showcases coding practice cases I developed while preparing for my clinical placement in surgical day care and newborn coding settings.
+This site showcases coding practice cases I developed while preparing for my co-op placement in surgical day care (SDC) and newborn coding settings.
 
 **What you'll find here:**
 - Complex surgical day care coding scenarios
@@ -75,7 +75,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 **Case 1: Preterm Infant with RDS and Jaundice** ⭐⭐⭐⭐⭐
 
-*Complexity: Expert Level*
+*Complexity: Intermediate*
 
 **Key Learning Points:**
 - Z38 coding as mandatory main condition for all newborns
@@ -91,7 +91,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 **Case 2: Birth Trauma with Cephalohematoma** ⭐⭐⭐⭐
 
-*Complexity: Advanced Level*
+*Complexity: Intermediate*
 
 **Key Learning Points:**
 - Birth trauma significance criteria (P10-P15)
@@ -106,7 +106,7 @@ This site showcases coding practice cases I developed while preparing for my cli
 
 **Case 3: Birth Asphyxia with Hypoxic Ischemic Encephalopathy** ⭐⭐⭐⭐⭐
 
-*Complexity: Expert Level*
+*Complexity: Advanced*
 
 **Key Learning Points:**
 - HIE (P91.6) as most responsible diagnosis when present
@@ -132,7 +132,7 @@ This portfolio contains practice scenarios developed as part of my Health Inform
 - ✅ Follow Canadian Coding Standards (CCS) principles
 
 All coding should be validated against current:
-- CIHI Canadian Coding Standards
+- CIHI Canadian Coding Standards(CSS)
 - ICD-10-CA Classification
 - CCI (Canadian Classification of Health Interventions)
 - Institutional coding policies
@@ -141,7 +141,7 @@ All coding should be validated against current:
 
 ## 💼 About Me
 
-I'm a Health Information Management student preparing for clinical placement in acute care hospital coding. This portfolio represents my commitment to:
+I'm a Health Information Management student preparing for co-op placement in acute care hospital coding. This portfolio represents my commitment to:
 
 ✅ Applying Canadian Coding Standards accurately  
 ✅ Understanding complex coding decision-making  
@@ -176,6 +176,6 @@ Coding principles demonstrated in this portfolio are based on:
 
 ---
 
-*This is a student learning portfolio. Cases will be added progressively as I continue my coding education.*
+*This is a student learning portfolio. Mistakes can happen as I am not a professional. Cases will be added progressively as I continue my coding education.*
 
 *Last updated: April 2026*
